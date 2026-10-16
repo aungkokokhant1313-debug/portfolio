@@ -1,80 +1,150 @@
+export const projectCategories = [
+  "All",
+  "AI Applications",
+  "Web Development",
+  "Programming Projects",
+];
+
 export const projects = [
   {
-    id: "finance-tracker",
-    title: "Smart Personal Finance Tracker",
-    category: "Academic & Systems",
-    status: "Core C++ Project",
+    id: "crop-doctor-ai",
+    title: "Crop Doctor AI",
+    category: "AI Applications",
+    status: "Featured AI Project",
+    featured: true,
     summary:
-      "A console-based personal finance management system designed for recording income, expenses, budgets, savings goals, and financial summaries.",
+      "An AI-powered plant disease detector for farmers providing instant diagnosis and practical, low-cost treatment recommendations from crop photos.",
     description:
-      "Developed as a foundational computer science project at the University of Information Technology (UIT). The system implements object-oriented design principles, custom data models, file I/O persistence, and interactive terminal menus for structured budget tracking and monthly financial calculations.",
+      "Crop Doctor AI is an agricultural vision system built to assist farmers in identifying crop diseases quickly. Users capture or upload a photo of a sick plant; the app performs vision analysis using the Gemini 2.5 Flash model through OpenRouter, cross-references findings with live agricultural web search, and returns a structured diagnosis with symptoms, low-cost treatments, prevention advice, and cited agricultural sources.",
+    aiModel: "Google Gemini 2.5 Flash (via OpenRouter API)",
+    technologies: [
+      "JavaScript",
+      "Gemini 2.5 Flash",
+      "OpenRouter API",
+      "Express.js",
+      "Multer",
+      "Sharp",
+      "CSS3",
+    ],
+    features: [
+      "Camera capture or photo upload with Sharp image preprocessing",
+      "AI vision diagnosis using google/gemini-2.5-flash via OpenRouter",
+      "Live agricultural research via OpenRouter web search integration",
+      "Structured treatment advice with practical, low-cost remedies",
+      "Clear safety precautions and citations from agricultural organizations",
+    ],
+    previewType: "ai-crop-doctor",
+    repoUrl: "https://github.com/aungkokokhant1313-debug/Crop-Doctor",
+    demoUrl: null, // Open source repo; demo not hosted
+  },
+  {
+    id: "ai-inventory-intelligence",
+    title: "AI Inventory Intelligence",
+    category: "AI Applications",
+    status: "Hackathon MVP",
+    featured: false,
+    summary:
+      "An intelligent inventory decision-support system for grocery stores combining live market news feeds and AI trend analysis.",
+    description:
+      "Developed as a hackathon MVP to help small grocery retailers optimize stock levels. The system ingests live market and community news data, runs analysis through OpenRouter language models, and calculates actionable reorder priorities and demand signals.",
+    aiModel: "OpenRouter LLM + NewsAPI / GNews Integration",
+    technologies: [
+      "JavaScript",
+      "OpenRouter API",
+      "NewsAPI",
+      "Node.js",
+      "Scoring Algorithms",
+      "JSON",
+    ],
+    features: [
+      "Live news feed integration (NewsAPI, GNews, NewsData)",
+      "AI market trend analysis & demand pattern detection",
+      "Algorithmic reorder prioritization and action summaries",
+      "Resilient architecture with offline fallback scoring logic",
+    ],
+    previewType: "ai-inventory",
+    repoUrl: "https://github.com/aungkokokhant1313-debug/Oblivion-Icon",
+    demoUrl: null,
+  },
+  {
+    id: "experimental-portfolio",
+    title: "Experimental 3D Portfolio",
+    category: "Web Development",
+    status: "Live Site",
+    featured: false,
+    summary:
+      "An avant-garde creative studio developer portfolio showcasing AI applications and full-stack projects using Three.js and React.",
+    description:
+      "A creative coding portfolio engineered with Three.js, React 19, and Motion for React. Features extruded 3D typography with cursor-responsive perspective tilt, a floating starfield with multi-colored geometric objects, and theme customization.",
+    aiModel: null,
+    technologies: [
+      "React 19",
+      "Three.js",
+      "Framer Motion",
+      "Vite",
+      "CSS3 3D Transforms",
+    ],
+    features: [
+      "Interactive Three.js 3D canvas with floating geometry",
+      "Extruded 3D typography with dynamic mouse perspective tilt",
+      "Real-time studio palette switcher (Cyber Violet, Azure, Sunset)",
+      "Zero-backend standalone fallback with prefilled mail drafts",
+    ],
+    previewType: "code-showcase",
+    repoUrl: "https://github.com/aungkokokhant1313-debug/portfolio",
+    demoUrl: "#hero",
+  },
+  {
+    id: "small-database-python",
+    title: "Small-Database (MySQL Manager)",
+    category: "Programming Projects",
+    status: "Hands-on Project",
+    featured: false,
+    summary:
+      "A Python database management tool for connecting to MySQL, initializing tables, and executing parameterized data operations.",
+    description:
+      "A practical Python programming project designed to master relational database connectivity with MySQL. Implements schema generation, dynamic console user prompts, and safe parameterized SQL insertion.",
+    aiModel: null,
+    technologies: ["Python", "MySQL", "mysql-connector-python", "SQL"],
+    features: [
+      "Automated MySQL database and table structure initialization",
+      "Dynamic interactive CLI prompts for structured user entry",
+      "Safe parameterized SQL queries preventing syntax injection",
+      "Buffered cursor query retrieval and clean connection lifecycle",
+    ],
+    previewType: "python-db",
+    repoUrl: "https://github.com/aungkokokhant1313-debug/Small-Database",
+    demoUrl: null,
+  },
+  {
+    id: "finance-tracker-cpp",
+    title: "Smart Personal Finance Tracker",
+    category: "Programming Projects",
+    status: "Academic Foundation",
+    featured: false,
+    summary:
+      "A console-based personal finance management application written in C++ for tracking budgets, expenses, and savings goals.",
+    description:
+      "An academic computer science project developed during IT coursework at UIT Yangon. Focuses on object-oriented programming principles, custom data models, file I/O persistence, and structured budget reporting.",
+    aiModel: null,
     technologies: ["C++", "OOP", "File I/O", "Data Structures", "Terminal UI"],
     features: [
-      "Categorized expense and income logging with timestamps",
-      "Dynamic budget allocation and real-time savings calculator",
-      "Persistent data storage via text/binary file handling",
-      "Formatted console summary reports with visual indicators",
+      "Categorized expense and income logging with custom structs",
+      "Dynamic budget allocation and savings milestone calculators",
+      "Persistent data storage via text file I/O",
+      "Formatted console summary reports with status codes",
     ],
     previewType: "terminal",
     terminalPreview: {
-      command: "./finance_tracker --report --monthly",
+      command: "./finance_tracker --report",
       output: [
         "[+] Initializing Wallet Database...",
-        "== MONTHLY SUMMARY: OCTOBER ==",
         "Total Income:     $1,250.00",
         "Total Expenses:   $  640.00",
-        "Net Savings:      $  610.00 [TARGET MET: 48.8%]",
-        "[i] Financial Health: OPTIMAL",
+        "Net Savings:      $  610.00 [TARGET MET]",
       ],
     },
-    image: null, // Set to an image URL or import when available
-    repoUrl: "https://github.com/aungkokokhant", // Editable repository URL; set to null if unavailable
-    demoUrl: null, // No live web demo for console C++ application (button will be cleanly hidden)
-  },
-  {
-    id: "fashion-assistant",
-    title: "Fashion Assistant",
-    category: "Web Application",
-    status: "In Development",
-    summary:
-      "A modern web platform assisting users in exploring curated outfit combinations, aesthetic style recommendations, and seasonal inspiration.",
-    description:
-      "A user-centric web interface focused on seamless style discovery. Built to experiment with state-driven UI filtering, modular component structures, and responsive gallery viewports for cataloging aesthetic garments and outfit ideas.",
-    technologies: ["React", "JavaScript", "CSS3", "Component Architecture"],
-    features: [
-      "Interactive style filter by season, occasion, and color tone",
-      "Curated outfit boards with recommendation cards",
-      "Responsive card grid with smooth transitions",
-      "Persistent user preference bookmarks using browser storage",
-    ],
-    previewType: "app-card",
-    accentColor: "#39E58C",
-    image: null, // Set to an image URL or import when available
-    repoUrl: "https://github.com/aungkokokhant", // Editable repository URL
-    demoUrl: null, // In active development; hidden until deployed
-  },
-  {
-    id: "portfolio-website",
-    title: "Personal Portfolio Website",
-    category: "Frontend & Animation",
-    status: "Live Project",
-    summary:
-      "A modern, highly animated developer portfolio built with React and Framer Motion showcasing my technical skills, academic journey, and projects.",
-    description:
-      "Designed with a futuristic dark developer aesthetic, featuring glowing emerald accents, fine terminal grids, interactive project modals, responsive navigation, theme switching (dark/light), and smooth scroll-triggered viewport animations.",
-    technologies: ["React", "CSS3", "JavaScript", "Framer Motion", "Lucide React", "Vite"],
-    features: [
-      "Interactive code-terminal hero with live preview details",
-      "Dual theme engine (Dark / Light) with localStorage sync",
-      "Accessible modal inspection for project architecture",
-      "Timeline visualization of academic & coding progress",
-      "Performance-tuned animations respecting prefers-reduced-motion",
-    ],
-    previewType: "code-showcase",
-    accentColor: "#39E58C",
-    image: null, // Uses consistent CSS-based visual preview
-    repoUrl: "https://github.com/aungkokokhant", // Editable repository URL
-    demoUrl: "#hero", // Current live portfolio site
+    repoUrl: "https://github.com/aungkokokhant1313-debug",
+    demoUrl: null,
   },
 ];
-

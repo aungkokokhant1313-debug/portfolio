@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Check, Terminal, Layers, Info } from 'lucide-react';
+import { X, ExternalLink, Check, Terminal, Layers, Info, Sparkles, Cpu } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 
 export default function ProjectModal({ project, isOpen, onClose }) {
@@ -43,7 +43,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   <span className="project-category-tag">{project.category}</span>
                   <span className="project-status-badge">{project.status}</span>
                 </div>
-                <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--color-text-primary)' }}>
+                <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#FFFFFF' }}>
                   {project.title}
                 </h3>
               </div>
@@ -60,6 +60,20 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
             {/* Modal Content */}
             <div className="project-modal-content">
+              {/* AI Model Architecture Badge (if applicable) */}
+              {project.aiModel && (
+                <div className="modal-ai-box">
+                  <div className="modal-ai-header">
+                    <Sparkles size={16} color="var(--accent-1)" />
+                    <span className="modal-ai-title">AI Model & Integration</span>
+                  </div>
+                  <div className="modal-ai-val">
+                    <Cpu size={14} style={{ color: 'var(--accent-2)', flexShrink: 0 }} />
+                    <span>{project.aiModel}</span>
+                  </div>
+                </div>
+              )}
+
               {/* Description */}
               <div>
                 <h4 style={{ fontSize: '0.9rem', color: '#FFFFFF', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>

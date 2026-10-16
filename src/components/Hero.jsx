@@ -29,13 +29,13 @@ export default function Hero() {
       <div className="hero-inner-composition">
         {/* Floating Ambient Badges */}
         <div className="scatter-badge scatter-badge-1">
-          <span>● UIT Yangon // Student</span>
+          <span>● UIT Yangon // IT Student</span>
         </div>
         <div className="scatter-badge scatter-badge-2">
-          <span>3D & Creative Development</span>
+          <span>★ Featured: Crop Doctor AI</span>
         </div>
         <div className="scatter-badge scatter-badge-3">
-          <span>Python + C++ + React</span>
+          <span>Gemini 2.5 • React 19 • Python</span>
         </div>
 
         {/* Identity Label */}
@@ -48,7 +48,7 @@ export default function Hero() {
           <span className="identity-pulsing-dot" />
           <span>{siteConfig.name}</span>
           <span style={{ color: 'var(--border-subtle)' }}>/</span>
-          <span style={{ color: 'var(--accent-1)' }}>Creative Coding Studio</span>
+          <span style={{ color: 'var(--accent-1)' }}>AI & Creative Developer</span>
         </motion.div>
 
         {/* 3D Extruded Master Headline */}
@@ -80,8 +80,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          IT student exploring <strong>creative development</strong>, <strong>interactive 3D web experiences</strong>,
-          and <strong>full-stack technologies</strong> at the University of Information Technology (UIT), Yangon.
+          IT student exploring <strong>AI application development</strong>, <strong>interactive 3D web experiences</strong>,
+          and <strong>full-stack engineering</strong> at the University of Information Technology (UIT), Yangon.
         </motion.p>
 
         {/* CTAs */}

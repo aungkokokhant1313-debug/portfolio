@@ -42,22 +42,32 @@ export const journeyMilestones = [
   {
     id: "building-projects",
     period: "Practical Application",
-    title: "Built Academic & Personal Projects",
-    institution: "Project Implementation",
+    title: "Engineered Practical Systems & Database Tools",
+    institution: "Project Implementation & Academic Systems",
     description:
-      "Applied skills to real-world software prototypes, including a C++ Personal Finance Tracker and web-based applications such as the Fashion Assistant and this animated developer portfolio.",
-    highlight: "Project Experience",
-    skills: ["Application Design", "Git & GitHub", "UI/UX Details", "File I/O"],
+      "Applied computer science concepts to build practical software: a C++ Smart Personal Finance Tracker with file I/O persistence, and Small-Database, a Python console tool for automated MySQL schema setup and parameterized SQL queries.",
+    highlight: "Systems & Databases",
+    skills: ["Python", "MySQL", "C++", "SQL Queries", "Git & GitHub"],
+  },
+  {
+    id: "ai-applications",
+    period: "AI Innovation",
+    title: "Engineered AI Applications & Vision Systems",
+    institution: "Hands-on AI & Hackathon Innovation",
+    description:
+      "Developed Crop Doctor AI, an agricultural vision system using Google Gemini 2.5 Flash and OpenRouter with agricultural web search citations. Also engineered AI Inventory Intelligence, a hackathon MVP analyzing live market news feeds with LLMs.",
+    highlight: "AI Vision & LLMs",
+    skills: ["Gemini 2.5 Flash", "OpenRouter API", "AI Vision", "Prompt Engineering", "Express.js"],
   },
   {
     id: "fullstack-growth",
-    period: "Current Focus",
-    title: "Working Toward Full-Stack Development",
-    institution: "Continuous Growth & Internships",
+    period: "Current Trajectory",
+    title: "Aspiring Full-Stack & Creative Developer",
+    institution: "Continuous Growth & Internship Readiness",
     description:
-      "Currently learning Python and exploring backend fundamentals with lightweight frameworks like Flask. Actively seeking software development and internship opportunities to collaborate in engineering real-world web applications.",
-    highlight: "In Progress",
-    skills: ["Python", "Flask Concepts", "REST APIs", "Full-Stack Architecture", "Git & GitHub"],
+      "Currently advancing in Python backend architecture (Flask, REST APIs) while mastering React 19, Three.js spatial interfaces, and AI API integrations. Actively seeking internship and software development opportunities to build impactful products.",
+    highlight: "Internship Ready",
+    skills: ["Full-Stack Architecture", "Python & Flask", "React 19", "Three.js", "AI APIs"],
   },
 ];
 

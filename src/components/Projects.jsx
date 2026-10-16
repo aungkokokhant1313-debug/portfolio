@@ -1,20 +1,25 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Terminal, Sparkles, Eye, Shirt, Box } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Terminal, Sparkles, Eye, Box, Activity, Cpu, Database } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import SectionHeading from './SectionHeading';
 import ProjectModal from './ProjectModal';
-import { projects } from '../data/projects';
+import { projects, projectCategories } from '../data/projects';
 import '../styles/Projects.css';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 },
+      transition: { staggerChildren: 0.12 },
     },
   };
 
@@ -35,6 +40,106 @@ export default function Projects() {
           alt={`${project.title} preview`}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
+      );
+    }
+
+    if (project.previewType === 'ai-crop-doctor') {
+      return (
+        <div className="preview-crop-doctor">
+          <div className="crop-hud-top">
+            <span className="hud-badge-pulse">
+              <span className="hud-dot" />
+              <span>AI VISION ACTIVE</span>
+            </span>
+            <span className="hud-model-pill">GEMINI 2.5 FLASH</span>
+          </div>
+          <div className="crop-scan-target">
+            <div className="crop-reticle top-left" />
+            <div className="crop-reticle top-right" />
+            <div className="crop-reticle bottom-left" />
+            <div className="crop-reticle bottom-right" />
+            <div className="crop-scan-beam" />
+            <svg viewBox="0 0 100 100" className="crop-leaf-svg" fill="none">
+              <path
+                d="M50 14 C28 24 18 48 26 78 C38 84 50 84 50 84 C50 84 62 84 74 78 C82 48 72 24 50 14 Z"
+                stroke="var(--accent-4, #8AF5B5)"
+                strokeWidth="2.2"
+                fill="rgba(57, 229, 140, 0.08)"
+              />
+              <path
+                d="M50 18 L50 84 M50 34 L36 46 M50 48 L64 40 M50 60 L34 68 M50 70 L64 66"
+                stroke="var(--accent-4, #8AF5B5)"
+                strokeWidth="1.6"
+                strokeOpacity="0.8"
+              />
+            </svg>
+          </div>
+          <div className="crop-hud-bottom">
+            <span className="crop-pill">● DIAGNOSIS READY</span>
+            <span className="crop-pill secondary">LOW-COST REMEDIES</span>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.previewType === 'ai-inventory') {
+      return (
+        <div className="preview-inventory-hud">
+          <div className="inventory-hud-header">
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Activity size={13} color="var(--accent-1)" />
+              <span>MARKET INTELLIGENCE</span>
+            </span>
+            <span className="inventory-badge">OPENROUTER</span>
+          </div>
+          <div className="inventory-metric-content">
+            <div className="inventory-signal-row">
+              <span>Demand Signal</span>
+              <span className="signal-up">SURGING (+24%)</span>
+            </div>
+            <div className="inventory-bar-track">
+              <div className="inventory-bar-fill" />
+            </div>
+            <div className="inventory-signal-row">
+              <span>Reorder Trigger</span>
+              <span className="signal-action">HIGH PRIORITY</span>
+            </div>
+          </div>
+          <div className="inventory-footer-note">
+            Live NewsAPI & GNews Ingestion
+          </div>
+        </div>
+      );
+    }
+
+    if (project.previewType === 'python-db') {
+      return (
+        <div className="project-preview-console">
+          <div className="console-top-bar">
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Database size={13} color="var(--accent-1)" />
+              <span>python3 small_database.py</span>
+            </span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--accent-4)' }}>[MySQL OK]</span>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--accent-4)' }}>
+              [✓] Connected to MySQL: localhost
+            </div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
+              [+] Schema & tables initialized
+            </div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--accent-2)' }}>
+              [?] Parameterized query: INSERT INTO...
+            </div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
+              [✓] 1 row safely written (Safe SQL)
+            </div>
+          </div>
+          <div style={{ color: 'var(--accent-1)', fontSize: '0.65rem', paddingTop: '4px', borderTop: '1px dashed rgba(255,255,255,0.1)' }}>
+            ● Connection pool closed gracefully
+          </div>
+        </div>
       );
     }
 
@@ -62,38 +167,6 @@ export default function Projects() {
       );
     }
 
-    if (project.previewType === 'app-card') {
-      return (
-        <div className="project-preview-lookbook">
-          <div className="lookbook-chips">
-            <span className="lookbook-chip">#AvantGarde</span>
-            <span className="lookbook-chip">#Monochrome</span>
-            <span className="lookbook-chip">#ReactUI</span>
-          </div>
-          <div className="lookbook-cards-row">
-            <div className="lookbook-card-item">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: 'var(--accent-3)', fontSize: '0.74rem' }}>
-                <Shirt size={13} />
-                <span>Ensemble Alpha</span>
-              </div>
-              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>
-                Minimalist Tailored
-              </div>
-            </div>
-            <div className="lookbook-card-item">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: 'var(--accent-1)', fontSize: '0.74rem' }}>
-                <Sparkles size={13} />
-                <span>Ensemble Beta</span>
-              </div>
-              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>
-                Cyber-Streetwear
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
     // Default: Creative Studio / 3D
     return (
       <div className="project-preview-studio">
@@ -114,90 +187,121 @@ export default function Projects() {
         <SectionHeading
           index="// 03. SELECTED WORKS"
           title="Things I've Built."
-          subtitle="A showcase of systems engineering, interactive web applications, and creative coding experiments."
+          subtitle="A showcase of AI applications, systems programming, and interactive 3D web engineering."
         />
 
+        {/* Category Filter Tabs */}
+        <div className="project-category-tabs">
+          {projectCategories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              className={`category-tab-btn ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <motion.div
+          key={activeCategory}
           className="creative-projects-grid"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          animate="visible"
         >
-          {projects.map((project) => (
-            <motion.article
-              key={project.id}
-              className="creative-project-card"
-              variants={cardVariants}
-            >
-              {/* Visual Preview Stage */}
-              <div className="project-visual-stage">
-                {renderVisualPreview(project)}
-              </div>
-
-              {/* Card Body */}
-              <div className="creative-project-body">
-                <div className="project-meta-pill-row">
-                  <span className="project-tag-accent">{project.category}</span>
-                  <span className="project-status-pill">{project.status}</span>
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.article
+                key={project.id}
+                className={`creative-project-card ${project.featured ? 'is-featured' : ''}`}
+                variants={cardVariants}
+                layout
+              >
+                {/* Visual Preview Stage */}
+                <div className="project-visual-stage">
+                  {renderVisualPreview(project)}
                 </div>
 
-                <h3 className="project-heading-title">{project.title}</h3>
-
-                <p className="project-brief-summary">{project.summary}</p>
-
-                {/* Tech Tags */}
-                <div className="project-tags-cloud">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span key={tech} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <span className="tech-tag">+{project.technologies.length - 4}</span>
+                {/* Card Body */}
+                <div className="creative-project-body">
+                  {project.featured && (
+                    <div className="project-featured-ribbon">
+                      <Sparkles size={13} />
+                      <span>FEATURED AI PROJECT</span>
+                    </div>
                   )}
-                </div>
 
-                {/* Action Bar */}
-                <div className="creative-action-bar">
-                  <button
-                    type="button"
-                    className="btn-card-studio"
-                    onClick={() => setSelectedProject(project)}
-                  >
-                    <Eye size={14} />
-                    <span>Details</span>
-                  </button>
+                  <div className="project-meta-pill-row">
+                    <span className="project-tag-accent">{project.category}</span>
+                    <span className="project-status-pill">{project.status}</span>
+                  </div>
 
-                  {project.repoUrl && (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <h3 className="project-heading-title">{project.title}</h3>
+
+                  {project.aiModel && (
+                    <div className="project-card-ai-badge">
+                      <Cpu size={12} />
+                      <span>{project.aiModel}</span>
+                    </div>
+                  )}
+
+                  <p className="project-brief-summary">{project.summary}</p>
+
+                  {/* Tech Tags */}
+                  <div className="project-tags-cloud">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <span key={tech} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span className="tech-tag">+{project.technologies.length - 4}</span>
+                    )}
+                  </div>
+
+                  {/* Action Bar */}
+                  <div className="creative-action-bar">
+                    <button
+                      type="button"
                       className="btn-card-studio"
-                      aria-label={`View ${project.title} source code on GitHub`}
+                      onClick={() => setSelectedProject(project)}
                     >
-                      <GithubIcon size={14} />
-                      <span>Code</span>
-                    </a>
-                  )}
+                      <Eye size={14} />
+                      <span>Details</span>
+                    </button>
 
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target={project.demoUrl.startsWith('#') ? '_self' : '_blank'}
-                      rel="noopener noreferrer"
-                      className="btn-card-studio primary"
-                      aria-label={`View ${project.title} live preview`}
-                    >
-                      <ExternalLink size={14} />
-                      <span>Live</span>
-                    </a>
-                  )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-card-studio"
+                        aria-label={`View ${project.title} source code on GitHub`}
+                      >
+                        <GithubIcon size={14} />
+                        <span>Code</span>
+                      </a>
+                    )}
+
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target={project.demoUrl.startsWith('#') ? '_self' : '_blank'}
+                        rel="noopener noreferrer"
+                        className="btn-card-studio primary"
+                        aria-label={`View ${project.title} live preview`}
+                      >
+                        <ExternalLink size={14} />
+                        <span>Live</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            ))}
+          </AnimatePresence>
         </motion.div>
 
         {/* Modal Inspection */}

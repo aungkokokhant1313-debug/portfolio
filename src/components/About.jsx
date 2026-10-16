@@ -24,25 +24,26 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="editorial-headline-large">
-              Engineering with <span>logic</span>, designing with <span>emotion</span>.
+              Engineering with <span>intelligence</span>, designing with <span>dimension</span>.
             </h3>
 
             <p className="editorial-body-p">
               I am an undergraduate Information Technology student at the{' '}
-              <strong>University of Information Technology (UIT), Yangon</strong>. My coding journey started
-              with the foundational rigor of <strong>C++</strong>, which grounded my understanding of algorithms, memory,
-              and systems architecture.
+              <strong>University of Information Technology (UIT), Yangon</strong>. My software engineering journey
+              began with the algorithmic discipline of <strong>C++</strong>, grounding my understanding of data structures,
+              memory management, and systems thinking.
             </p>
 
             <p className="editorial-body-p">
-              As I transitioned into web technologies, I realized the browser is more than just static pages—it is an
-              <strong> interactive, multidimensional digital canvas</strong>. I am passionate about blending creative coding,
-              subtle 3D graphics, and responsive frontend architectures into unforgettable digital experiences.
+              Driven by the impact of artificial intelligence, I engineer practical AI applications. In projects like{' '}
+              <strong>Crop Doctor AI</strong>, I harness <strong>Google Gemini 2.5 Flash</strong> vision and OpenRouter tool-calling
+              to analyze crop diseases and deliver immediate, low-cost remedies to agricultural communities.
             </p>
 
             <p className="editorial-body-p">
-              Currently, I am learning <strong>Python</strong> to expand my backend and scripting capabilities while pushing
-              the boundaries of modern React and spatial web interfaces.
+              On the web, I push the envelope with <strong>React 19</strong>, <strong>Three.js</strong>, and physics-based motion
+              to craft immersive 3D experiences. Concurrently, I am expanding my backend engineering in <strong>Python</strong> to
+              build reliable, scalable full-stack applications.
             </p>
           </motion.div>
 
@@ -82,31 +83,31 @@ export default function About() {
             </div>
 
             <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
-              Focused on software engineering, creative programming, and delivering production-grade web applications.
+              Specializing in AI application workflows, systems programming, and modern reactive full-stack web applications.
             </p>
 
             <div className="creative-pillars">
               <div className="pillar-item">
                 <span className="pillar-num">01.</span>
                 <div>
-                  <div className="pillar-title">Disciplined Fundamentals</div>
-                  <div className="pillar-desc">Strong procedural & OOP foundations rooted in C++ coursework.</div>
+                  <div className="pillar-title">Computer Science Discipline</div>
+                  <div className="pillar-desc">Strong procedural & OOP foundations rooted in C++ coursework at UIT Yangon.</div>
                 </div>
               </div>
 
               <div className="pillar-item">
                 <span className="pillar-num">02.</span>
                 <div>
-                  <div className="pillar-title">3D & Interactive Web</div>
-                  <div className="pillar-desc">Bringing interfaces to life with Motion for React and Three.js.</div>
+                  <div className="pillar-title">Practical AI Applications</div>
+                  <div className="pillar-desc">Vision models (Gemini 2.5 Flash), OpenRouter orchestration, and prompt engineering.</div>
                 </div>
               </div>
 
               <div className="pillar-item">
                 <span className="pillar-num">03.</span>
                 <div>
-                  <div className="pillar-title">Continuous Expansion</div>
-                  <div className="pillar-desc">Exploring Python for lightweight APIs and data workflows.</div>
+                  <div className="pillar-title">Spatial 3D & Full-Stack</div>
+                  <div className="pillar-desc">Interactive Three.js interfaces with React 19, backed by Python API architectures.</div>
                 </div>
               </div>
             </div>

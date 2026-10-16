@@ -1,32 +1,28 @@
 export const siteConfig = {
   name: "Aung Ko Ko Khant",
   shortName: "AKK",
-  tagline: "Full-Stack Developer in Progress",
-  statusLabel: "AVAILABLE FOR INTERNSHIP OPPORTUNITIES",
+  tagline: "AI Application Developer & Aspiring Full-Stack Developer",
+  statusLabel: "OPEN FOR AI & SOFTWARE INTERNSHIPS",
   university: "University of Information Technology (UIT), Yangon",
   degree: "B.Sc. in Information Technology",
   location: "Yangon, Myanmar",
   heroDescription:
-    "I'm an IT student passionate about building useful, interactive, and modern web experiences. I enjoy turning ideas into practical digital products while continuously improving my development skills.",
+    "IT student at UIT Yangon passionate about building practical AI applications, intelligent tools, and modern full-stack web experiences.",
   
-  // Contact & Socials - Easily editable
-  email: "aungkokokhant.dev@gmail.com", // Replace with your primary email
-  github: "https://github.com/aungkokokhant", // Replace with your GitHub profile
-  linkedin: "https://linkedin.com/in/aungkokokhant", // Replace with your LinkedIn profile
+  // Real GitHub Profile & Contact
+  email: "aungkokokhant.dev@gmail.com",
+  github: "https://github.com/aungkokokhant1313-debug",
+  linkedin: "https://linkedin.com/in/aungkokokhant",
   resumeUrl: "/resume.pdf",
-  
-  // Optional Formspree / Web3Forms endpoint for production forms
-  // Example: "https://formspree.io/f/your_form_id"
-  // If left empty, the contact form opens the user's default email client with draft pre-filled
+
+  // Optional backend endpoint (e.g. Render Python Flask API)
   formEndpoint: "",
 
   navLinks: [
-    { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
     { name: "Journey", href: "#journey" },
     { name: "Contact", href: "#contact" },
   ],
 };
-
