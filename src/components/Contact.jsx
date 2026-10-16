@@ -69,10 +69,13 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Option 2: If a real backend form service endpoint is configured in siteConfig.js
-    if (siteConfig.formEndpoint && siteConfig.formEndpoint.trim() !== '') {
+    // Check for configured Flask backend or form endpoint
+    const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').trim().replace(/\/+$/, '');
+    const endpoint = apiBaseUrl ? `${apiBaseUrl}/api/contact` : (siteConfig.formEndpoint || '').trim();
+
+    if (endpoint) {
       try {
-        const response = await fetch(siteConfig.formEndpoint, {
+        const response = await fetch(endpoint, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -81,26 +84,34 @@ export default function Contact() {
           body: JSON.stringify(formData),
         });
 
-        if (response.ok) {
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok && data.success) {
           setSubmitStatus('service_success');
           setFormData({ name: '', email: '', subject: '', message: '' });
+        } else if (data.fallback_to_mailto) {
+          setSubmitStatus('draft_ready');
+          window.open(getMailtoUrl(), '_self');
+        } else if (data.errors) {
+          setErrors(data.errors);
         } else {
           setSubmitStatus('service_error');
         }
       } catch {
-        setSubmitStatus('service_error');
+        // If backend is unreachable or CORS blocked, gracefully fall back to mailto
+        setSubmitStatus('draft_ready');
+        window.open(getMailtoUrl(), '_self');
       } finally {
         setIsSubmitting(false);
       }
       return;
     }
 
-    // Option 1: Frontend-only mode (launches user's email client with pre-filled draft)
+    // Default frontend-only mode: launch mail client directly with pre-filled draft
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus('draft_ready');
-      const mailtoUrl = getMailtoUrl();
-      window.location.href = mailtoUrl;
+      window.open(getMailtoUrl(), '_self');
     }, 300);
   };
 
@@ -388,7 +399,7 @@ export default function Contact() {
               </button>
 
               <div className="form-footer-note">
-                <span>Frontend-ready with instant mailto draft option. Configurable via <code>siteConfig.js</code>.</span>
+                <span>Frontend-ready with instant mailto draft option. Supports Flask backend via <code>VITE_API_BASE_URL</code>.</span>
               </div>
             </form>
           </motion.div>

@@ -1,0 +1,25 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables & secrets (NEVER commit to GitHub)
+.env
+.env.local
+
+# Database files
+*.db
+*.sqlite3
+instance/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+

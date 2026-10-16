@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: akk-portfolio-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: http://localhost:5173,http://localhost:4173,https://your-portfolio.netlify.app
+      - key: MESSAGE_STORAGE_MODE
+        value: sqlite
+

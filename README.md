@@ -79,23 +79,49 @@ Both the navigation bar "Resume" button and the hero section "Download Resume" b
 
 ---
 
-## 🌐 Deployment Instructions
+---
 
-### Deploy to Vercel (Recommended)
-1. Push your repository to [GitHub](https://github.com).
-2. Visit [Vercel](https://vercel.com) and log in with your GitHub account.
-3. Click **"Add New"** > **"Project"** and select your `portfolio` repository.
-4. Framework Preset will auto-detect as **Vite**.
-5. Click **"Deploy"**. Vercel will build and assign you a free `*.vercel.app` domain with automated SSL.
+## 🌐 Full Deployment Architecture
 
-### Deploy to Netlify
-1. Log in to [Netlify](https://www.netlify.com).
-2. Click **"Add new site"** > **"Import an existing project"** > **GitHub**.
-3. Select this repository.
-4. Netlify will configure:
+This portfolio is architected for clean separation of concerns:
+- **Frontend**: React + Vite, hosted on **Netlify**
+- **Backend (Optional API)**: Python + Flask with Gunicorn, hosted on **Render**
+- **Fallback**: The portfolio works 100% standalone with zero backend required. If the backend is not deployed, the contact form seamlessly falls back to pre-filled `mailto:` drafts.
+
+---
+
+### Part 1: Deploying the Frontend on Netlify
+
+1. Push your repository to **GitHub**.
+2. Log in to [Netlify](https://www.netlify.com).
+3. Click **"Add new site"** > **"Import an existing project"** > **GitHub** and select this repo.
+4. Netlify will automatically detect [`netlify.toml`](file:///d:/portfolio/netlify.toml):
    - **Build command**: `npm run build`
    - **Publish directory**: `dist`
-5. Click **"Deploy Portfolio"**.
+5. *(Optional)* If your Flask backend is already deployed, go to **Site configuration** > **Environment variables** and add:
+   - `VITE_API_BASE_URL`: `https://your-flask-service.onrender.com`
+6. Click **"Deploy Portfolio"**.
+
+---
+
+### Part 2: Deploying the Python + Flask Backend on Render
+
+1. Log in to [Render](https://render.com) with GitHub.
+2. Click **"New +"** > **"Web Service"** and connect your repository.
+3. Configure the service:
+   - **Name**: `akk-portfolio-api`
+   - **Root Directory**: `backend`
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn app:app`
+   - **Instance Type**: `Free`
+4. Add **Environment Variables** in Render:
+   - `FLASK_ENV`: `production`
+   - `SECRET_KEY`: *(Click "Generate" or set a random key)*
+   - `ALLOWED_ORIGINS`: `https://your-site-name.netlify.app,http://localhost:5173`
+   - `MESSAGE_STORAGE_MODE`: `sqlite`
+5. Click **"Create Web Service"**.
+6. Copy your service URL (e.g. `https://akk-portfolio-api.onrender.com`) and paste it as `VITE_API_BASE_URL` on Netlify.
 
 ---
 
