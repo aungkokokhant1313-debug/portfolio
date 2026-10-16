@@ -51,6 +51,11 @@
   transition: all var(--transition-smooth);
 }
 
+.studio-logo:hover .brand-logo-container img {
+  transform: scale(1.08) rotate(3deg);
+  filter: drop-shadow(0 0 20px var(--glow-primary)) drop-shadow(0 0 30px rgba(168, 85, 247, 0.45));
+}
+
 .studio-logo:hover .studio-logo-mark {
   transform: rotate(6deg) scale(1.08);
   border-color: var(--accent-1);

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import PaletteSwitcher from './PaletteSwitcher';
+import BrandLogo from './BrandLogo';
 import { siteConfig } from '../data/siteConfig';
 import '../styles/Navbar.css';
 
@@ -38,19 +39,17 @@ export default function Navbar({ activeSection, currentPalette, onSelectPalette 
   return (
     <header className={`studio-nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container-minimal">
-        {/* Top-Left: Minimalist AKK Logo */}
+        {/* Top-Left: Distinctive AK Developer Brand Logo */}
         <a
           href="#hero"
           className="studio-logo"
           onClick={(e) => handleLinkClick(e, '#hero')}
           aria-label="Aung Ko Ko Khant Creative Developer Portfolio"
         >
-          <div className="studio-logo-mark">
-            <span>AKK</span>
-          </div>
+          <BrandLogo size={42} />
           <div className="studio-logo-text">
             <span className="studio-name">{siteConfig.name}</span>
-            <span className="studio-sub">CREATIVE DEVELOPER // UIT</span>
+            <span className="studio-sub">AI & CREATIVE DEVELOPER // UIT</span>
           </div>
         </a>
 

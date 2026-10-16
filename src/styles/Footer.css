@@ -27,6 +27,11 @@
   gap: 14px;
 }
 
+.footer-signature:hover .brand-logo-container img {
+  transform: scale(1.08) rotate(-3deg);
+  filter: drop-shadow(0 0 20px var(--glow-primary)) drop-shadow(0 0 30px rgba(168, 85, 247, 0.45));
+}
+
 .footer-akk-badge {
   display: flex;
   align-items: center;

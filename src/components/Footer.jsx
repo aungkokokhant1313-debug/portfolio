@@ -1,5 +1,6 @@
 import { ArrowUp, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TelegramIcon } from './SocialIcons';
+import BrandLogo from './BrandLogo';
 import { siteConfig } from '../data/siteConfig';
 import '../styles/Footer.css';
 
@@ -25,13 +26,11 @@ export default function Footer() {
       <div className="container creative-footer-content">
         <div className="footer-main-row">
           <div className="footer-signature">
-            <div className="footer-akk-badge">
-              <span>AKK</span>
-            </div>
+            <BrandLogo size={42} />
             <div>
               <div className="footer-name-text">{siteConfig.name}</div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-1)' }}>
-                Creative Developer • UIT Yangon
+                AI & Creative Developer • UIT Yangon
               </div>
             </div>
           </div>

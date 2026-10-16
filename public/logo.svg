@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Left Leg 'A' Outer: Violet to Magenta -->
+    <linearGradient id="akkAOuter" x1="0%" y1="100%" x2="70%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="30%" stop-color="#7C3AED" />
+      <stop offset="65%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#D946EF" />
+    </linearGradient>
+
+    <!-- Left Leg 'A' Inner Bevel: Deep Shadow -->
+    <linearGradient id="akkAShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581C87" />
+      <stop offset="50%" stop-color="#3B0764" />
+      <stop offset="100%" stop-color="#1E1B4B" />
+    </linearGradient>
+
+    <!-- Center Stem Top: Electric Cyan to Sky Blue -->
+    <linearGradient id="akkStemCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="30%" stop-color="#00F2FE" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <!-- Center Stem Bottom Ribbon: Purple Fold -->
+    <linearGradient id="akkStemPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="50%" stop-color="#6D28D9" />
+      <stop offset="100%" stop-color="#4C1D95" />
+    </linearGradient>
+
+    <!-- Upper Right Arm 'K': Electric Cyan to Blue -->
+    <linearGradient id="akkArmUpper" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="35%" stop-color="#0284C7" />
+      <stop offset="75%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Lower Right Leg 'K': Magenta to Violet -->
+    <linearGradient id="akkLegLower" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C026D3" />
+      <stop offset="40%" stop-color="#9333EA" />
+      <stop offset="75%" stop-color="#6D28D9" />
+      <stop offset="100%" stop-color="#4C1D95" />
+    </linearGradient>
+
+    <!-- Lower Right Leg Facet / Shadow -->
+    <linearGradient id="akkLegShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581C87" />
+      <stop offset="100%" stop-color="#2E1065" />
+    </linearGradient>
+
+    <!-- Coding Bracket Cyan '<' -->
+    <linearGradient id="bracketCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#00B4D8" />
+    </linearGradient>
+
+    <!-- Coding Bracket Lime '>' -->
+    <linearGradient id="bracketLime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A3E635" />
+      <stop offset="50%" stop-color="#39E58C" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Soft Depth Filter -->
+    <filter id="brandDepth" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="2" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+
+    <filter id="limeGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#39E58C" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <g id="ak-brand-logo" filter="url(#brandDepth)">
+    <!-- 1. Upper Right Arm of 'K' (slopes northeast) -->
+    <path
+      d="M604 468 L700 555 L975 287 L805 287 Z"
+      fill="url(#akkArmUpper)"
+    />
+    <!-- K Arm Under Fold Shadow -->
+    <path
+      d="M604 468 L700 555 L675 555 L604 500 Z"
+      fill="#1E3A8A"
+      opacity="0.6"
+    />
+
+    <!-- 2. Lower Right Leg of 'K' (slopes southeast with 3D faceted ribbon) -->
+    <path
+      d="M604 545 L700 545 L876 813 L780 813 Z"
+      fill="url(#akkLegLower)"
+    />
+    <path
+      d="M700 545 L876 813 L820 813 L655 565 Z"
+      fill="url(#akkLegShadow)"
+      opacity="0.4"
+    />
+    <path
+      d="M604 545 L700 545 L650 600 L604 580 Z"
+      fill="#2E1065"
+      opacity="0.75"
+    />
+
+    <!-- 3. Left Diagonal Leg of 'A' (slopes up to top peak) -->
+    <!-- Rounded bottom-left tip and upward ribbon -->
+    <path
+      d="M85 784 C62 784 48 762 58 740 L435 224 C442 214 452 214 458 220 L504 280 L195 784 Z"
+      fill="url(#akkAOuter)"
+    />
+
+    <!-- Bottom Inner Bevel / Fold of 'A' -->
+    <path
+      d="M85 784 L195 784 L340 784 L210 700 L140 784 Z"
+      fill="url(#akkAShadow)"
+      opacity="0.85"
+    />
+
+    <!-- 4. Center Vertical Column / K Stem -->
+    <!-- Top Chamfer and Cyan Column -->
+    <path
+      d="M458 220 L528 220 L604 296 L604 720 L504 620 L504 360 L458 296 Z"
+      fill="url(#akkStemCyan)"
+    />
+
+    <!-- Bottom Ribbon Extension (Purple / Violet) -->
+    <path
+      d="M504 620 L604 720 L589 815 L502 728 Z"
+      fill="url(#akkStemPurple)"
+    />
+
+    <!-- Chamfer Highlight Edge -->
+    <path
+      d="M528 220 L604 296 L588 296 L520 228 Z"
+      fill="#67E8F9"
+      opacity="0.65"
+    />
+
+    <!-- 5. Inner Coding Brackets inside 'A' triangle -->
+    <!-- Left Bracket: '<' (Electric Cyan) -->
+    <path
+      d="M365 565 L290 630 L365 695"
+      stroke="url(#bracketCyan)"
+      stroke-width="32"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- Right Bracket: '>' (Vibrant Neon Lime) -->
+    <path
+      d="M400 565 L475 630 L400 695"
+      stroke="url(#bracketLime)"
+      stroke-width="32"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      filter="url(#limeGlow)"
+    />
+  </g>
+</svg>

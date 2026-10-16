@@ -1,30 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 200 950 630" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="akkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#C084FC" />
-      <stop offset="50%" stop-color="#818CF8" />
-      <stop offset="100%" stop-color="#38BDF8" />
+    <linearGradient id="favAOuter" x1="0%" y1="100%" x2="70%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="30%" stop-color="#7C3AED" />
+      <stop offset="65%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#D946EF" />
     </linearGradient>
-    <linearGradient id="akkGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F472B6" />
-      <stop offset="100%" stop-color="#818CF8" />
+    <linearGradient id="favAShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581C87" />
+      <stop offset="100%" stop-color="#3B0764" />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#818CF8" flood-opacity="0.5" />
-    </filter>
+    <linearGradient id="favStemCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="40%" stop-color="#00F2FE" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="favStemPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#4C1D95" />
+    </linearGradient>
+    <linearGradient id="favArmUpper" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="45%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+    <linearGradient id="favLegLower" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C026D3" />
+      <stop offset="45%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#6D28D9" />
+    </linearGradient>
+    <linearGradient id="favBracketCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#00B4D8" />
+    </linearGradient>
+    <linearGradient id="favBracketLime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A3E635" />
+      <stop offset="50%" stop-color="#39E58C" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
   </defs>
 
-  <!-- Clean, bold geometric shape with transparent background -->
-  <!-- Left wing of 'A' & 'K' -->
-  <path d="M12 48L24 14C24.5 12.5 26.5 12.5 27 14L32 28L22 48H12Z" fill="url(#akkGradient)" filter="url(#glow)" />
-  
-  <!-- Central crossbar / dynamic polygon -->
-  <path d="M22 36H42L37 48H18L22 36Z" fill="url(#akkGradient2)" />
+  <!-- Upper Right Arm of 'K' -->
+  <path d="M604 468 L700 555 L975 287 L805 287 Z" fill="url(#favArmUpper)" />
 
-  <!-- Right diagonal strokes forming 'K' and finishing the mark -->
-  <path d="M34 14L50 48H39L29 27L34 14Z" fill="url(#akkGradient)" />
-  <path d="M35 32L49 14H40L29 28L35 32Z" fill="url(#akkGradient2)" filter="url(#glow)" />
+  <!-- Lower Right Leg of 'K' -->
+  <path d="M604 545 L700 545 L876 813 L780 813 Z" fill="url(#favLegLower)" />
 
-  <!-- Accent geometric dot -->
-  <circle cx="51" cy="46" r="3.5" fill="#38BDF8" />
+  <!-- Left Diagonal Leg of 'A' -->
+  <path d="M85 784 C62 784 48 762 58 740 L435 224 C442 214 452 214 458 220 L504 280 L195 784 Z" fill="url(#favAOuter)" />
+  <path d="M85 784 L195 784 L340 784 L210 700 L140 784 Z" fill="url(#favAShadow)" opacity="0.9" />
+
+  <!-- Center Vertical Column / K Stem -->
+  <path d="M458 220 L528 220 L604 296 L604 720 L504 620 L504 360 L458 296 Z" fill="url(#favStemCyan)" />
+  <path d="M504 620 L604 720 L589 815 L502 728 Z" fill="url(#favStemPurple)" />
+
+  <!-- Bold Coding Brackets for crisp small-size favicon visibility -->
+  <path d="M365 560 L285 630 L365 700" stroke="url(#favBracketCyan)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M400 560 L480 630 L400 700" stroke="url(#favBracketLime)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
