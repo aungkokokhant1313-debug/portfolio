@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Agentic Web Developer & AI Application Engineer",
   statusLabel: "UIT 2ND YEAR // OPEN FOR INTERNSHIPS",
   university: "University of Information Technology (UIT), Yangon",
-  degree: "Second-Year Student (B.Sc. in Information Technology)",
+  degree: "Second-year IT student (Undergraduate Program)",
   location: "Yangon, Myanmar",
   heroDescription:
     "Second-year IT student at UIT Yangon studying Networking Fundamentals. Proficient in Python, MongoDB, and MySQL, currently learning React and JSON to engineer modern agentic web experiences.",
