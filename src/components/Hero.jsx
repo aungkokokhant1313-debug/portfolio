@@ -138,10 +138,10 @@ export default function Hero() {
               transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
             >
               <div className="photo-frame-inner">
-                {/* Official Portrait in Black Suit */}
+                {/* 3D Blue-Hoodie Cartoon Developer Avatar */}
                 <img
-                  src="/images/profile-suit.png"
-                  alt="Aung Ko Ko Khant — AI & Creative Developer"
+                  src="/images/hero-cartoon-avatar.png"
+                  alt="Aung Ko Ko Khant — 3D Cartoon Developer Avatar"
                   className="hero-profile-img"
                   loading="eager"
                   fetchPriority="high"
