@@ -92,7 +92,7 @@ export const projects = [
     ],
     previewType: "code-showcase",
     repoUrl: "https://github.com/aungkokokhant1313-debug/portfolio",
-    demoUrl: "#hero",
+    demoUrl: "#",
   },
   {
     id: "small-database-python",

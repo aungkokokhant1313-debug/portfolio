@@ -30,6 +30,13 @@ export default function Navbar({ activeSection, currentPalette, onSelectPalette 
   const handleLinkClick = (e, href) => {
     e.preventDefault();
     setMobileOpen(false);
+    if (href === '#' || href === '#hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -41,9 +48,9 @@ export default function Navbar({ activeSection, currentPalette, onSelectPalette 
       <div className="nav-container-minimal">
         {/* Top-Left: Distinctive AK Developer Brand Logo */}
         <a
-          href="#hero"
+          href="#"
           className="studio-logo"
-          onClick={(e) => handleLinkClick(e, '#hero')}
+          onClick={(e) => handleLinkClick(e, '#')}
           aria-label="Aung Ko Ko Khant Creative Developer Portfolio"
         >
           <BrandLogo size={42} />

@@ -139,9 +139,16 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   target={project.demoUrl.startsWith('#') ? '_self' : '_blank'}
                   rel="noopener noreferrer"
                   className="btn-card-action btn-card-primary"
-                  onClick={() => {
+                  onClick={(e) => {
                     if (project.demoUrl.startsWith('#')) {
                       onClose();
+                      if (project.demoUrl === '#' || project.demoUrl === '#hero') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        if (window.location.hash) {
+                          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                        }
+                      }
                     }
                   }}
                 >

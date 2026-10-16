@@ -33,6 +33,17 @@ export default function App() {
     localStorage.setItem('akk_studio_palette', palette);
   }, [palette]);
 
+  // Strip #hero hash on initial mount while keeping homepage at root
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash === '#hero') {
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search
+      );
+    }
+  }, []);
+
   return (
     <div className="portfolio-studio-root">
       {/* Subtle Illustrated Background Pattern */}

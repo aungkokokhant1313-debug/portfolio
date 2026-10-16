@@ -302,6 +302,15 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         className="btn-card-studio primary"
                         aria-label={`View ${project.title} live preview`}
+                        onClick={(e) => {
+                          if (project.demoUrl === '#' || project.demoUrl === '#hero') {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            if (window.location.hash) {
+                              window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                            }
+                          }
+                        }}
                       >
                         <ExternalLink size={14} />
                         <span>Live</span>
