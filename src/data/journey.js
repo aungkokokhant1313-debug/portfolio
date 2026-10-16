@@ -1,0 +1,62 @@
+export const journeyMilestones = [
+  {
+    id: "uit-enrollment",
+    period: "Foundation",
+    title: "Started Studying IT at UIT Yangon",
+    institution: "University of Information Technology (UIT), Yangon",
+    description:
+      "Enrolled in the Bachelor of Science in Information Technology program. Commenced rigorous coursework in computer science principles, discrete mathematics, algorithmic thinking, and computer systems.",
+    highlight: "Academic Foundation",
+    skills: ["Computer Systems", "Logic & Problem Solving", "IT Fundamentals"],
+  },
+  {
+    id: "cpp-fundamentals",
+    period: "Core Programming",
+    title: "Mastered Programming Fundamentals with C++",
+    institution: "UIT Coursework & Self-Study",
+    description:
+      "Built a solid foundation in procedural and object-oriented programming. Gained hands-on experience with memory management, pointer manipulation, algorithmic structures, and console applications.",
+    highlight: "Object-Oriented Programming",
+    skills: ["C++", "OOP Principles", "Data Structures", "Terminal Development"],
+  },
+  {
+    id: "web-fundamentals",
+    period: "Web Exploration",
+    title: "Began Developing Websites with HTML, CSS & JavaScript",
+    institution: "Self-Directed Learning",
+    description:
+      "Transitioned into web development by mastering semantic HTML5 markup, responsive CSS3 layouts (Flexbox & Grid), and modern JavaScript (ES6+). Built interactive static sites and practiced clean DOM scripting.",
+    highlight: "Frontend Foundations",
+    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design"],
+  },
+  {
+    id: "react-modern-frontend",
+    period: "Modern UI",
+    title: "Explored React & Component Architecture",
+    institution: "Modern Web Development",
+    description:
+      "Adopted React to engineer component-driven, stateful user interfaces. Learned core hooks, component lifecycles, CSS modularity, and animation integration using Framer Motion.",
+    highlight: "Component Systems",
+    skills: ["React", "State & Props", "Hooks", "Framer Motion", "Vite"],
+  },
+  {
+    id: "building-projects",
+    period: "Practical Application",
+    title: "Built Academic & Personal Projects",
+    institution: "Project Implementation",
+    description:
+      "Applied skills to real-world software prototypes, including a C++ Personal Finance Tracker and web-based applications such as the Fashion Assistant and this animated developer portfolio.",
+    highlight: "Project Experience",
+    skills: ["Application Design", "Git & GitHub", "UI/UX Details", "File I/O"],
+  },
+  {
+    id: "fullstack-growth",
+    period: "Current Focus",
+    title: "Working Toward Full-Stack Development",
+    institution: "Continuous Growth & Internships",
+    description:
+      "Expanding backend knowledge with Node.js, Express, and MongoDB. Actively seeking software development and internship opportunities to collaborate in engineering production web applications.",
+    highlight: "In Progress",
+    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Full-Stack Architecture"],
+  },
+];

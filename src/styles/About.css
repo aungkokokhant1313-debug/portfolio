@@ -1,0 +1,185 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left Column: Visual Monogram & Quick Facts Card */
+.about-visual-card {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-avatar-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 24px;
+}
+
+.avatar-ring-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed var(--color-accent-primary);
+  opacity: 0.4;
+  animation: floatSlow 12s linear infinite;
+}
+
+.avatar-monogram-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-accent-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px var(--color-accent-glow);
+  position: relative;
+}
+
+.avatar-monogram-text {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-accent-primary);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.avatar-dev-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.about-card-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.about-card-role {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent-primary);
+  margin-bottom: 20px;
+}
+
+.about-quick-facts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.quick-fact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.quick-fact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-badge);
+  color: var(--color-accent-primary);
+  flex-shrink: 0;
+}
+
+/* Right Column: Narrative */
+.about-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.narrative-p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.narrative-p strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.about-highlight-box {
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-badge);
+  border-left: 3px solid var(--color-accent-primary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.philosophy-card {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.philosophy-card:hover {
+  border-color: var(--color-accent-primary);
+  transform: translateY(-2px);
+}
+
+.philosophy-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.philosophy-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+}
