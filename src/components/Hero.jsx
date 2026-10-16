@@ -4,12 +4,10 @@ import {
   Mail,
   ArrowRight,
   Sparkles,
-  Lock,
-  Bot,
   Code2,
   Cpu,
-  Trophy,
   Terminal,
+  GraduationCap,
 } from 'lucide-react';
 import '../styles/Hero.css';
 
@@ -44,7 +42,7 @@ export default function Hero() {
           {/* Small Introductory Label */}
           <motion.div className="hero-badge-pill" variants={itemVariants}>
             <span className="pulse-dot" />
-            <span>UIT Yangon // 2nd Year IT Student</span>
+            <span>UIT Yangon · IT Student</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -94,16 +92,20 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Right Column: Large Illustrated Product & AI Composition */}
+        {/* Right Column: Personal Photo Composition */}
         <motion.div
           className="hero-visual-col"
-          initial={{ opacity: 0, scale: 0.92, y: 30 }}
+          initial={{ opacity: 0, scale: 0.94, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="illustration-composition">
+          <div className="hero-photo-composition">
             {/* Ambient Background Glow Halo */}
-            <div className="illustration-halo" />
+            <div className="photo-ambient-halo" />
+
+            {/* Decorative Geometric Backdrops */}
+            <div className="photo-backdrop-shape shape-purple" />
+            <div className="photo-backdrop-shape shape-cyan" />
 
             {/* Playful Floating Sparkle Stars */}
             <span className="sparkle-star star-1">✦</span>
@@ -132,71 +134,41 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Main Central Browser Mockup: Crop Doctor AI Showcase */}
-            <div className="browser-window-mockup">
-              {/* Window Controls & URL bar */}
-              <div className="browser-header-bar">
-                <div className="window-dots">
-                  <span className="dot red" />
-                  <span className="dot yellow" />
-                  <span className="dot green" />
-                </div>
+            {/* Main Creative Personal Photo Frame */}
+            <motion.div
+              className="photo-frame-wrapper"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+            >
+              <div className="photo-frame-inner">
+                {/* Photo Element */}
+                <img
+                  src="/images/profile.jpg"
+                  alt="Aung Ko Ko Khant — AI & Creative Developer"
+                  className="hero-profile-img"
+                  loading="eager"
+                  fetchPriority="high"
+                />
 
-                <div className="browser-url-pill">
-                  <Lock size={11} color="var(--accent-1)" />
-                  <span>crop-doctor-ai.app/scan</span>
-                </div>
+                {/* Subtle Gradient Vignette at bottom edge */}
+                <div className="photo-frame-vignette" />
 
-                <span className="browser-tag-right">[ACTIVE]</span>
-              </div>
-
-              {/* Inside Window Body */}
-              <div className="browser-mockup-body">
-                <div className="mockup-app-header">
-                  <div className="app-brand">
-                    <Bot size={16} color="var(--accent-1)" />
-                    <span>Crop Doctor AI</span>
-                  </div>
-                  <span className="app-live-indicator">● LIVE VISION</span>
-                </div>
-
-                {/* Leaf Scanner Graphic */}
-                <div className="mockup-scanner-stage">
-                  <div className="scanner-laser-beam" />
-                  <svg viewBox="0 0 100 100" className="scanner-leaf-svg" fill="none">
-                    <path
-                      d="M50 14 C28 24 18 48 26 78 C38 84 50 84 50 84 C50 84 62 84 74 78 C82 48 72 24 50 14 Z"
-                      stroke="var(--accent-1)"
-                      strokeWidth="2.2"
-                      fill="rgba(57, 229, 140, 0.12)"
-                    />
-                    <path
-                      d="M50 18 L50 84 M50 34 L36 46 M50 48 L64 40 M50 60 L34 68 M50 70 L64 66"
-                      stroke="var(--accent-1)"
-                      strokeWidth="1.6"
-                      strokeOpacity="0.85"
-                    />
-                  </svg>
-                  <div className="scanner-crosshair">[+] AI TARGET ACQUIRED [+]</div>
-                </div>
-
-                {/* Diagnostics HUD Row */}
-                <div className="mockup-hud-pills">
-                  <span className="hud-chip success">✓ Health: 94% Normal</span>
-                  <span className="hud-chip info">Model: Gemini 2.5 Flash</span>
-                  <span className="hud-chip">Low-Cost Organic Remedy</span>
+                {/* Status Pill on the Frame */}
+                <div className="photo-status-badge">
+                  <span className="status-live-dot" />
+                  <span>UIT Yangon // 2nd Year IT Student</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Floating Badge Card 3: Bottom-Left */}
             <div className="floating-card card-bottom-left">
               <div className="floating-card-icon" style={{ color: '#F59E0B' }}>
-                <Trophy size={16} />
+                <GraduationCap size={16} />
               </div>
               <div>
-                <div className="floating-card-title">Cursor AI Hackathon</div>
-                <div className="floating-card-sub">Team Oblivion Icon</div>
+                <div className="floating-card-title">UIT Yangon</div>
+                <div className="floating-card-sub">Networking Fundamentals</div>
               </div>
             </div>
 
