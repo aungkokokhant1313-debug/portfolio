@@ -13,7 +13,7 @@ export default function Journey() {
         <SectionHeading
           index="// 05. DEVELOPMENT TIMELINE"
           title="Development Journey."
-          subtitle="From computer science foundations at UIT Yangon to creative full-stack development."
+          subtitle="A timeline of academic coursework, practical projects, and continuous technical learning."
         />
 
         <div className="journey-timeline-artistic">
