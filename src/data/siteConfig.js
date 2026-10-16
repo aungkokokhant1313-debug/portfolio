@@ -2,12 +2,12 @@ export const siteConfig = {
   name: "Aung Ko Ko Khant",
   shortName: "AKK",
   tagline: "Agentic Web Developer & AI Application Engineer",
-  statusLabel: "OPEN FOR AI & AGENTIC WEB INTERNSHIPS",
+  statusLabel: "UIT 2ND YEAR // OPEN FOR INTERNSHIPS",
   university: "University of Information Technology (UIT), Yangon",
-  degree: "B.Sc. in Information Technology",
+  degree: "Second-Year Student (B.Sc. in Information Technology)",
   location: "Yangon, Myanmar",
   heroDescription:
-    "IT student at UIT Yangon specializing in agentic web development, practical AI applications, and interactive full-stack digital experiences.",
+    "Second-year IT student at UIT Yangon studying Networking Fundamentals. Proficient in Python, MongoDB, and MySQL, currently learning React and JSON to engineer modern agentic web experiences.",
   
   // Real Profiles & Verified Contact
   email: "aungkokokhant1313@gmail.com",

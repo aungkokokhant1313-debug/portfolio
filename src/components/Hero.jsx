@@ -29,13 +29,13 @@ export default function Hero() {
       <div className="hero-inner-composition">
         {/* Floating Ambient Badges */}
         <div className="scatter-badge scatter-badge-1">
-          <span>● UIT Yangon // IT Student</span>
+          <span>● UIT Yangon // 2nd Year Student</span>
         </div>
         <div className="scatter-badge scatter-badge-2">
-          <span>⚡ Agentic Web Development</span>
+          <span>⚡ Networking Fundamentals // UIT</span>
         </div>
         <div className="scatter-badge scatter-badge-3">
-          <span>Cursor • Gemini • React 19 • Python</span>
+          <span>Python • Mongo • MySQL • React (Learning)</span>
         </div>
 
         {/* Identity Label */}
@@ -80,9 +80,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          IT student at the University of Information Technology (UIT), Yangon, specializing in{' '}
-          <strong>agentic web development</strong>, <strong>practical AI applications</strong>, and{' '}
-          <strong>interactive 3D full-stack experiences</strong>.
+          Second-year IT student at the University of Information Technology (UIT), Yangon, studying{' '}
+          <strong>Networking Fundamentals</strong>. Proficient in <strong>Python</strong>, <strong>MongoDB</strong>, and{' '}
+          <strong>MySQL</strong>, currently learning <strong>React</strong> and <strong>JSON</strong> to build modern{' '}
+          <strong>agentic web experiences</strong>.
         </motion.p>
 
         {/* CTAs */}

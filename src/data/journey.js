@@ -1,7 +1,7 @@
 export const journeyMilestones = [
   {
     id: "uit-enrollment",
-    period: "Foundation",
+    period: "Year 1 Foundation",
     title: "Started Studying IT at UIT Yangon",
     institution: "University of Information Technology (UIT), Yangon",
     description:
@@ -11,63 +11,52 @@ export const journeyMilestones = [
   },
   {
     id: "cpp-fundamentals",
-    period: "Core Programming",
+    period: "Core Systems",
     title: "Mastered Programming Fundamentals with C++",
     institution: "UIT Coursework & Self-Study",
     description:
-      "Built a solid foundation in procedural and object-oriented programming. Gained hands-on experience with memory management, pointer manipulation, algorithmic structures, and console applications.",
+      "Built a solid foundation in procedural and object-oriented programming. Gained hands-on experience with memory management, pointer manipulation, data structures, and console applications.",
     highlight: "Object-Oriented Programming",
     skills: ["C++", "OOP Principles", "Data Structures", "Terminal Development"],
   },
   {
-    id: "web-fundamentals",
-    period: "Web Exploration",
-    title: "Began Developing Websites with HTML, CSS & JavaScript",
-    institution: "Self-Directed Learning",
+    id: "python-databases",
+    period: "Database Mastery",
+    title: "Mastered Python, MySQL & MongoDB Databases",
+    institution: "Practical Software & Data Engineering",
     description:
-      "Transitioned into web development by mastering semantic HTML5 markup, responsive CSS3 layouts (Flexbox & Grid), and modern JavaScript (ES6+). Built interactive static sites and practiced clean DOM scripting.",
-    highlight: "Frontend Foundations",
-    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design"],
+      "Finished comprehensive training in Python programming and database architectures: engineering relational MySQL schemas with parameterized queries in Small-Database, and working with NoSQL document stores in MongoDB.",
+    highlight: "Databases & Python (Finished)",
+    skills: ["Python", "MySQL", "MongoDB", "Parameterized SQL", "NoSQL Documents"],
   },
   {
-    id: "react-modern-frontend",
-    period: "Modern UI",
-    title: "Explored React & Component Architecture",
-    institution: "Modern Web Development",
+    id: "networking-fundamentals",
+    period: "Year 2 Active",
+    title: "Studying Networking Fundamentals at UIT",
+    institution: "UIT Yangon — Second Year IT Curriculum",
     description:
-      "Adopted React to engineer component-driven, stateful user interfaces. Learned core hooks, component lifecycles, CSS modularity, and animation integration using Framer Motion.",
-    highlight: "Component Systems",
-    skills: ["React", "State & Props", "Hooks", "Framer Motion", "Vite"],
-  },
-  {
-    id: "building-projects",
-    period: "Practical Application",
-    title: "Engineered Practical Systems & Database Tools",
-    institution: "Project Implementation & Academic Systems",
-    description:
-      "Applied computer science concepts to build practical software: a C++ Smart Personal Finance Tracker with file I/O persistence, and Small-Database, a Python console tool for automated MySQL schema setup and parameterized SQL queries.",
-    highlight: "Systems & Databases",
-    skills: ["Python", "MySQL", "C++", "SQL Queries", "Git & GitHub"],
+      "Currently advancing through second-year IT coursework focusing on Networking Fundamentals: understanding the OSI 7-layer model, TCP/IP protocol suite, IP subnetting, routing, packet flow, and client-server communication.",
+    highlight: "Networking Fundamentals",
+    skills: ["Networking Fundamentals", "TCP/IP", "OSI Model", "Subnetting", "Protocols"],
   },
   {
     id: "ai-applications",
     period: "AI Innovation",
     title: "Engineered AI Applications & Vision Systems",
-    institution: "Hands-on AI & Hackathon Innovation",
+    institution: "Hands-on AI & Cursor Hackathon",
     description:
-      "Developed Crop Doctor AI, an agricultural vision system using Google Gemini 2.5 Flash and OpenRouter with agricultural web search citations. Also engineered AI Inventory Intelligence, a hackathon MVP analyzing live market news feeds with LLMs.",
+      "Developed Crop Doctor AI, an agricultural vision system using Google Gemini 2.5 Flash and OpenRouter with live web search citations. Participated in the Cursor AI Hackathon Myanmar with Team Oblivion Icon.",
     highlight: "AI Vision & LLMs",
-    skills: ["Gemini 2.5 Flash", "OpenRouter API", "AI Vision", "Prompt Engineering", "Express.js"],
+    skills: ["Gemini 2.5 Flash", "Cursor Hackathon", "AI Vision", "Prompt Engineering", "OpenRouter"],
   },
   {
-    id: "fullstack-growth",
-    period: "Current Trajectory",
-    title: "Agentic Web Development & Full-Stack Engineering",
+    id: "react-agentic-growth",
+    period: "Current Focus",
+    title: "Learning React & JSON + Agentic Web Development",
     institution: "Continuous Growth & Internship Readiness",
     description:
-      "Specializing in Agentic Web Development—building and shipping modern, production-grade web applications rapidly with autonomous AI coding agents alongside Python backend architecture (Flask, REST APIs) and React 19.",
-    highlight: "Agentic Web & Full-Stack",
-    skills: ["Agentic Web Development", "AI Coding Agents", "React 19", "Python & Flask", "REST APIs"],
+      "Currently mastering React component architecture and JSON data serialization, paired with Agentic Web Development—using autonomous AI coding agents to rapidly build and ship production-quality full-stack websites.",
+    highlight: "React, JSON & Agentic Web",
+    skills: ["React (Learning)", "JSON (Learning)", "Agentic Web Development", "AI Coding Agents", "Vite"],
   },
 ];
-

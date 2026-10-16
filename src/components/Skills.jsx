@@ -11,6 +11,8 @@ import {
   GitBranch,
   Laptop,
   Box,
+  Globe,
+  Network,
 } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import SectionHeading from './SectionHeading';
@@ -30,6 +32,8 @@ const iconMap = {
   Github: GithubIcon,
   Laptop,
   Box,
+  Globe,
+  Network,
 };
 
 export default function Skills() {
