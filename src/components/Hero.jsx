@@ -58,10 +58,7 @@ export default function Hero() {
 
           {/* Short Introduction */}
           <motion.p className="hero-bio-text" variants={itemVariants}>
-            Second-year IT student at UIT Yangon studying <strong>Networking Fundamentals</strong>.
-            Proficient in <strong>Python</strong>, <strong>MongoDB</strong>, and <strong>MySQL</strong>,
-            currently mastering <strong>React</strong> and <strong>JSON</strong> to engineer modern,
-            interactive websites and useful AI applications with agentic workflows.
+            I’m an IT student at UIT, Yangon, interested in AI applications, web development, and software engineering.
           </motion.p>
 
           {/* Action Buttons */}
@@ -80,19 +77,19 @@ export default function Hero() {
 
           {/* Technology Label Row */}
           <motion.div className="hero-tech-row" variants={itemVariants}>
-            <span className="tech-row-label">Verified Tech Stack:</span>
+            <span className="tech-row-label">Technical Stack & Coursework:</span>
             <div className="tech-chips-group">
-              <span className="hero-tech-chip lime">Python (Finished)</span>
-              <span className="hero-tech-chip lime">MongoDB (Finished)</span>
-              <span className="hero-tech-chip lime">MySQL (Finished)</span>
+              <span className="hero-tech-chip lime">Python</span>
+              <span className="hero-tech-chip lime">MySQL</span>
+              <span className="hero-tech-chip lime">MongoDB</span>
               <span className="hero-tech-chip lime">C++</span>
               <span className="hero-tech-chip purple">React (Learning)</span>
-              <span className="hero-tech-chip blue">JSON (Learning)</span>
+              <span className="hero-tech-chip blue">JSON</span>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Right Column: Personal Photo Composition */}
+        {/* Right Column: Professional Portrait in Glowing Geometric Frame */}
         <motion.div
           className="hero-visual-col"
           initial={{ opacity: 0, scale: 0.94, y: 30 }}
@@ -103,7 +100,7 @@ export default function Hero() {
             {/* Ambient Background Glow Halo */}
             <div className="photo-ambient-halo" />
 
-            {/* Decorative Geometric Backdrops */}
+            {/* Decorative Geometric Glowing Backdrops */}
             <div className="photo-backdrop-shape shape-purple" />
             <div className="photo-backdrop-shape shape-cyan" />
 
@@ -112,38 +109,38 @@ export default function Hero() {
             <span className="sparkle-star star-2">✦</span>
             <span className="sparkle-star star-3">✧</span>
 
-            {/* Floating Badge Card 1: Top-Left */}
+            {/* Floating Badge Card 1: Top-Left (Code / Web) */}
             <div className="floating-card card-top-left">
               <div className="floating-card-icon" style={{ color: 'var(--accent-2)' }}>
                 <Code2 size={16} />
               </div>
               <div>
-                <div className="floating-card-title">Agentic Web Dev</div>
-                <div className="floating-card-sub">Autonomous Workflows</div>
+                <div className="floating-card-title">Web Development</div>
+                <div className="floating-card-sub">Interactive Websites</div>
               </div>
             </div>
 
-            {/* Floating Badge Card 2: Top-Right */}
+            {/* Floating Badge Card 2: Top-Right (AI Applications) */}
             <div className="floating-card card-top-right">
               <div className="floating-card-icon" style={{ color: 'var(--accent-3)' }}>
                 <Cpu size={16} />
               </div>
               <div>
-                <div className="floating-card-title">Gemini 2.5 Flash</div>
-                <div className="floating-card-sub">AI Vision Engine</div>
+                <div className="floating-card-title">AI Applications</div>
+                <div className="floating-card-sub">Gemini & OpenRouter</div>
               </div>
             </div>
 
-            {/* Main Creative Personal Photo Frame */}
+            {/* Main Glowing Futuristic Photo Frame */}
             <motion.div
               className="photo-frame-wrapper"
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
             >
               <div className="photo-frame-inner">
-                {/* Photo Element */}
+                {/* Official Portrait in Black Suit */}
                 <img
-                  src="/images/profile.jpg"
+                  src="/images/profile-suit.png"
                   alt="Aung Ko Ko Khant — AI & Creative Developer"
                   className="hero-profile-img"
                   loading="eager"
@@ -161,7 +158,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating Badge Card 3: Bottom-Left */}
+            {/* Floating Badge Card 3: Bottom-Left (University Education) */}
             <div className="floating-card card-bottom-left">
               <div className="floating-card-icon" style={{ color: '#F59E0B' }}>
                 <GraduationCap size={16} />
@@ -172,14 +169,14 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Badge Card 4: Bottom-Right */}
+            {/* Floating Badge Card 4: Bottom-Right (Databases & Backend) */}
             <div className="floating-card card-bottom-right">
               <div className="floating-card-icon" style={{ color: 'var(--accent-1)' }}>
                 <Terminal size={16} />
               </div>
               <div>
-                <div className="floating-card-title">Python • Mongo • SQL</div>
-                <div className="floating-card-sub">Finished & Mastered</div>
+                <div className="floating-card-title">Python & Databases</div>
+                <div className="floating-card-sub">MySQL • MongoDB</div>
               </div>
             </div>
           </div>

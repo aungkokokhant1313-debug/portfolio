@@ -7,7 +7,7 @@ export const siteConfig = {
   degree: "Second-year IT student (Undergraduate Program)",
   location: "Yangon, Myanmar",
   heroDescription:
-    "Second-year IT student at UIT Yangon studying Networking Fundamentals. Proficient in Python, MongoDB, and MySQL, currently learning React and JSON to engineer modern agentic web experiences.",
+    "I’m an IT student at UIT, Yangon, interested in AI applications, web development, and software engineering.",
   
   // Real Profiles & Verified Contact
   email: "aungkokokhant1313@gmail.com",
