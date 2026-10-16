@@ -55,8 +55,9 @@ export const journeyMilestones = [
     title: "Working Toward Full-Stack Development",
     institution: "Continuous Growth & Internships",
     description:
-      "Expanding backend knowledge with Node.js, Express, and MongoDB. Actively seeking software development and internship opportunities to collaborate in engineering production web applications.",
+      "Currently learning Python and exploring backend fundamentals with lightweight frameworks like Flask. Actively seeking software development and internship opportunities to collaborate in engineering real-world web applications.",
     highlight: "In Progress",
-    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Full-Stack Architecture"],
+    skills: ["Python", "Flask Concepts", "REST APIs", "Full-Stack Architecture", "Git & GitHub"],
   },
 ];
+

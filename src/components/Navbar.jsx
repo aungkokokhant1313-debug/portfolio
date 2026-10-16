@@ -183,3 +183,4 @@ export default function Navbar({ activeSection, theme, toggleTheme }) {
     </header>
   );
 }
+

@@ -77,3 +77,4 @@ export const projects = [
     demoUrl: "#hero", // Current live portfolio site
   },
 ];
+

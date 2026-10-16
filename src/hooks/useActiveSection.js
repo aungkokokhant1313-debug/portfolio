@@ -28,3 +28,4 @@ export function useActiveSection(sectionIds = ['hero', 'about', 'skills', 'proje
 
   return activeSection;
 }
+

@@ -36,3 +36,4 @@ export function LinkedinIcon({ size = 18, color = 'currentColor', ...props }) {
     </svg>
   );
 }
+

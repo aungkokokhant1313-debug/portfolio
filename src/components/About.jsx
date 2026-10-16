@@ -117,8 +117,8 @@ export default function About() {
                 <span style={{ fontWeight: 700 }}>Current Learning Focus:</span>
               </div>
               <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--color-text-secondary)' }}>
-                Deepening backend proficiencies in Node.js, Express, and MongoDB while sharpening component architecture
-                and state management patterns in React.
+                Learning Python for scripting, backend foundations, and lightweight APIs while advancing component
+                architecture and interactive animation patterns in React.
               </p>
             </motion.div>
 

@@ -29,3 +29,4 @@ export const siteConfig = {
     { name: "Contact", href: "#contact" },
   ],
 };
+

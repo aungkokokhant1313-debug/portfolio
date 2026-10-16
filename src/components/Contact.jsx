@@ -95,11 +95,13 @@ export default function Contact() {
       return;
     }
 
-    // Option 1: Frontend-only mode (No fake delivery; transparent mailto draft preparation)
+    // Option 1: Frontend-only mode (launches user's email client with pre-filled draft)
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus('draft_ready');
-    }, 400);
+      const mailtoUrl = getMailtoUrl();
+      window.location.href = mailtoUrl;
+    }, 300);
   };
 
   const getMailtoUrl = () => {

@@ -181,7 +181,7 @@ export default function Hero() {
                       <br />
                       {'  '}<span className="code-prop">frontendStack:</span> [<span className="code-string">"React"</span>, <span className="code-string">"HTML5"</span>, <span className="code-string">"CSS3"</span>],
                       <br />
-                      {'  '}<span className="code-prop">currentlyLearning:</span> [<span className="code-string">"Node.js"</span>, <span className="code-string">"Express"</span>, <span className="code-string">"MongoDB"</span>],
+                      {'  '}<span className="code-prop">currentlyLearning:</span> [<span className="code-string">"Python"</span>, <span className="code-string">"Flask Basics"</span>],
                       <br />
                       {'  '}<span className="code-prop">openForInternships:</span> <span className="code-boolean">true</span>,
                       <br />
@@ -204,7 +204,9 @@ export default function Hero() {
                       <br />
                       <span className="code-string">[✓] UIT Yangon Academic Status: ACTIVE</span>
                       <br />
-                      <span className="code-string">[✓] Development Stack: REACT + NODE + C++</span>
+                      <span className="code-string">[✓] Development Stack: REACT + JAVASCRIPT + C++</span>
+                      <br />
+                      <span className="code-string">[✓] Currently Learning: PYTHON + FLASK</span>
                       <br />
                       <span className="code-string">[✓] Target Role: FULL-STACK INTERNSHIP</span>
                       <br />
@@ -234,3 +236,4 @@ export default function Hero() {
     </section>
   );
 }
+

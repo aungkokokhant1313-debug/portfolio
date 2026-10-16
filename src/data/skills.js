@@ -31,25 +31,6 @@ export const skillCategories = [
     ],
   },
   {
-    id: "backend",
-    title: "Backend Development",
-    description: "Server-side logic, routing, and RESTful API fundamentals.",
-    skills: [
-      {
-        name: "Node.js",
-        status: "Currently Learning",
-        experience: "Runtime environment, event loop, module system, npm scripts",
-        icon: "Server",
-      },
-      {
-        name: "Express.js",
-        status: "Currently Learning",
-        experience: "REST API routes, middleware architecture, request handling",
-        icon: "Cpu",
-      },
-    ],
-  },
-  {
     id: "programming",
     title: "Programming Languages",
     description: "Algorithmic thinking, problem-solving, and core syntax fundamentals.",
@@ -66,18 +47,24 @@ export const skillCategories = [
         experience: "Web scripting, event-driven programming, modular code",
         icon: "Braces",
       },
+      {
+        name: "Python",
+        status: "Currently Learning",
+        experience: "Syntax fundamentals, scripting, data handling, exploring web frameworks",
+        icon: "Code2",
+      },
     ],
   },
   {
-    id: "tools",
-    title: "Databases & Developer Tools",
-    description: "Workflow optimization, version control, and data modeling.",
+    id: "backend-learning",
+    title: "Backend & Web Architecture",
+    description: "Exploring server-side concepts, API communication, and data modeling.",
     skills: [
       {
-        name: "MongoDB",
+        name: "Python Web / Flask",
         status: "Currently Learning",
-        experience: "NoSQL document stores, collections, CRUD operations",
-        icon: "Database",
+        experience: "Learning HTTP request-response cycle, routing, and lightweight APIs",
+        icon: "Terminal",
       },
       {
         name: "JSON",
@@ -85,6 +72,19 @@ export const skillCategories = [
         experience: "Data serialization, API payloads, mock data schemas",
         icon: "FileJson",
       },
+      {
+        name: "MongoDB",
+        status: "Currently Learning",
+        experience: "NoSQL document stores, collections, CRUD operations",
+        icon: "Database",
+      },
+    ],
+  },
+  {
+    id: "tools",
+    title: "Developer Tools & Workflow",
+    description: "Workflow optimization, version control, and development environments.",
+    skills: [
       {
         name: "Git",
         status: "Hands-on",

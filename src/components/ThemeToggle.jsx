@@ -38,3 +38,4 @@ export default function ThemeToggle({ theme, toggleTheme }) {
     </motion.button>
   );
 }
+
