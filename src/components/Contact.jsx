@@ -130,7 +130,7 @@ export default function Contact() {
     <section id="contact" className="section-wrapper">
       <div className="container">
         <SectionHeading
-          index="// 05. GET IN TOUCH"
+          index="// 06. INITIATE TRANSMISSION"
           title="Contact Studio."
           subtitle="Open for internships, creative development collaborations, and software engineering opportunities."
         />

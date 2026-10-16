@@ -7,8 +7,9 @@ import '../styles/Navbar.css';
 
 const navItems = [
   { name: 'About', href: '#about', id: 'about' },
-  { name: 'Work', href: '#projects', id: 'projects' },
   { name: 'Skills', href: '#skills', id: 'skills' },
+  { name: 'Work', href: '#projects', id: 'projects' },
+  { name: 'Certificates', href: '#certificates', id: 'certificates' },
   { name: 'Journey', href: '#journey', id: 'journey' },
   { name: 'Contact', href: '#contact', id: 'contact' },
 ];

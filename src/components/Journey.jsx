@@ -11,7 +11,7 @@ export default function Journey() {
     <section id="journey" className="section-wrapper">
       <div className="container">
         <SectionHeading
-          index="// 04. MILESTONES"
+          index="// 05. DEVELOPMENT TIMELINE"
           title="Development Journey."
           subtitle="From computer science foundations at UIT Yangon to creative full-stack development."
         />
