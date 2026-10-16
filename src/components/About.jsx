@@ -35,15 +35,15 @@ export default function About() {
             </p>
 
             <p className="editorial-body-p">
-              Driven by the impact of artificial intelligence, I engineer practical AI applications. In projects like{' '}
-              <strong>Crop Doctor AI</strong>, I harness <strong>Google Gemini 2.5 Flash</strong> vision and OpenRouter tool-calling
-              to analyze crop diseases and deliver immediate, low-cost remedies to agricultural communities.
+              A core focus of my expertise is <strong>Agentic Web Development</strong>. I utilize autonomous AI coding agents,
+              multi-agent orchestration, and prompt-driven architecture to rapidly design, scaffold, and deploy complete,
+              production-grade websites and intelligent applications with remarkable velocity and architectural cleaness.
             </p>
 
             <p className="editorial-body-p">
-              On the web, I push the envelope with <strong>React 19</strong>, <strong>Three.js</strong>, and physics-based motion
-              to craft immersive 3D experiences. Concurrently, I am expanding my backend engineering in <strong>Python</strong> to
-              build reliable, scalable full-stack applications.
+              Driven by artificial intelligence, I engineer solutions like <strong>Crop Doctor AI</strong> (harnessing{' '}
+              <strong>Google Gemini 2.5 Flash</strong> vision and OpenRouter tool-calling) while crafting immersive 3D interfaces
+              with <strong>React 19</strong>, <strong>Three.js</strong>, and <strong>Python</strong> backend services.
             </p>
           </motion.div>
 
@@ -83,7 +83,7 @@ export default function About() {
             </div>
 
             <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
-              Specializing in AI application workflows, systems programming, and modern reactive full-stack web applications.
+              Specializing in agentic web development, AI vision pipelines, and modern reactive full-stack engineering.
             </p>
 
             <div className="creative-pillars">
@@ -98,8 +98,8 @@ export default function About() {
               <div className="pillar-item">
                 <span className="pillar-num">02.</span>
                 <div>
-                  <div className="pillar-title">Practical AI Applications</div>
-                  <div className="pillar-desc">Vision models (Gemini 2.5 Flash), OpenRouter orchestration, and prompt engineering.</div>
+                  <div className="pillar-title">Agentic Web & AI Systems</div>
+                  <div className="pillar-desc">Rapid website creation using autonomous coding agents, Gemini 2.5 Flash, and OpenRouter.</div>
                 </div>
               </div>
 

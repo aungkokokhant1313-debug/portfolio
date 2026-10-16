@@ -9,8 +9,9 @@ import {
   ExternalLink,
   Loader2,
   Clock,
+  Sparkles,
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon, LinkedinIcon, TelegramIcon } from './SocialIcons';
 import SectionHeading from './SectionHeading';
 import { siteConfig } from '../data/siteConfig';
 import '../styles/Contact.css';
@@ -132,7 +133,7 @@ export default function Contact() {
         <SectionHeading
           index="// 06. INITIATE TRANSMISSION"
           title="Contact Studio."
-          subtitle="Open for internships, creative development collaborations, and software engineering opportunities."
+          subtitle="Open for internships, agentic web development, and software engineering opportunities."
         />
 
         <div className="creative-contact-grid">
@@ -145,16 +146,27 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="contact-studio-statement">
-              Let's create something <span>interesting</span> together.
+              Let's create something <span>extraordinary</span> together.
             </h3>
 
             <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>
-              Whether you have an internship opening, a project idea, or simply want to chat about creative code
-              and full-stack development, my inbox is always open.
+              Need a modern, responsive website built with <strong>Agentic AI workflows</strong>, have an internship opening,
+              or want to discuss AI application architectures? My inbox and channels are always open.
             </p>
 
+            {/* Agentic Web Development Callout */}
+            <div className="agentic-highlight-banner">
+              <div className="agentic-badge-pill">
+                <Sparkles size={13} color="var(--accent-4, #A3E635)" />
+                <span>AGENTIC WEB DEVELOPMENT AVAILABLE</span>
+              </div>
+              <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                I engineer websites and web applications with autonomous AI coding agents, intelligent multi-agent orchestration, and modern React 19 / Python stacks for ultra-fast, production-grade delivery.
+              </div>
+            </div>
+
             <div className="contact-channels-art">
-              {/* Email */}
+              {/* Direct Email */}
               <a href={`mailto:${siteConfig.email}`} className="art-channel-item" aria-label="Email Aung Ko Ko Khant">
                 <div className="art-channel-icon-box">
                   <Mail size={18} />
@@ -164,6 +176,46 @@ export default function Contact() {
                     Direct Email
                   </div>
                   <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>{siteConfig.email}</div>
+                </div>
+              </a>
+
+              {/* Telegram */}
+              {siteConfig.telegram && (
+                <a
+                  href={siteConfig.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="art-channel-item"
+                  aria-label="Telegram Aung Ko Ko Khant"
+                >
+                  <div className="art-channel-icon-box" style={{ color: 'var(--accent-2)' }}>
+                    <TelegramIcon size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-2)', textTransform: 'uppercase' }}>
+                      Telegram Direct
+                    </div>
+                    <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>{siteConfig.telegramUsername}</div>
+                  </div>
+                </a>
+              )}
+
+              {/* LinkedIn */}
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="art-channel-item"
+                aria-label="LinkedIn Profile"
+              >
+                <div className="art-channel-icon-box" style={{ color: 'var(--accent-3)' }}>
+                  <LinkedinIcon size={18} />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-3)', textTransform: 'uppercase' }}>
+                    Professional Network
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>linkedin.com/in/aungkokokhantdev13</div>
                 </div>
               </a>
 
@@ -179,29 +231,10 @@ export default function Contact() {
                   <GithubIcon size={18} />
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-2)', textTransform: 'uppercase' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-4)', textTransform: 'uppercase' }}>
                     Code Repositories
                   </div>
-                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>github.com/aungkokokhant</div>
-                </div>
-              </a>
-
-              {/* LinkedIn */}
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="art-channel-item"
-                aria-label="LinkedIn Profile"
-              >
-                <div className="art-channel-icon-box">
-                  <LinkedinIcon size={18} />
-                </div>
-                <div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-3)', textTransform: 'uppercase' }}>
-                    Professional Network
-                  </div>
-                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>linkedin.com/in/aungkokokhant</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>github.com/aungkokokhant1313-debug</div>
                 </div>
               </a>
             </div>

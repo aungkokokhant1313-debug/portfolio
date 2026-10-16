@@ -62,12 +62,12 @@ export const journeyMilestones = [
   {
     id: "fullstack-growth",
     period: "Current Trajectory",
-    title: "Aspiring Full-Stack & Creative Developer",
+    title: "Agentic Web Development & Full-Stack Engineering",
     institution: "Continuous Growth & Internship Readiness",
     description:
-      "Currently advancing in Python backend architecture (Flask, REST APIs) while mastering React 19, Three.js spatial interfaces, and AI API integrations. Actively seeking internship and software development opportunities to build impactful products.",
-    highlight: "Internship Ready",
-    skills: ["Full-Stack Architecture", "Python & Flask", "React 19", "Three.js", "AI APIs"],
+      "Specializing in Agentic Web Development—building and shipping modern, production-grade web applications rapidly with autonomous AI coding agents alongside Python backend architecture (Flask, REST APIs) and React 19.",
+    highlight: "Agentic Web & Full-Stack",
+    skills: ["Agentic Web Development", "AI Coding Agents", "React 19", "Python & Flask", "REST APIs"],
   },
 ];
 

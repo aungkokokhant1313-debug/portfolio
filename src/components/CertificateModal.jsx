@@ -226,3 +226,4 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
     </AnimatePresence>
   );
 }
+

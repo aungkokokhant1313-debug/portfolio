@@ -170,3 +170,4 @@ export default function CertificateCard({ certificate, onSelect, variants }) {
     </motion.div>
   );
 }
+

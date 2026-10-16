@@ -136,3 +136,28 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* Agentic Web Development Callout */
+.agentic-highlight-banner {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(163, 230, 53, 0.08), rgba(56, 189, 248, 0.08));
+  border: 1px solid rgba(163, 230, 53, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 0 20px rgba(163, 230, 53, 0.1);
+}
+
+.agentic-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-4, #A3E635);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+

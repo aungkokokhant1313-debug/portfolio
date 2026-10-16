@@ -1,5 +1,5 @@
 import { ArrowUp, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon, LinkedinIcon, TelegramIcon } from './SocialIcons';
 import { siteConfig } from '../data/siteConfig';
 import '../styles/Footer.css';
 
@@ -40,11 +40,14 @@ export default function Footer() {
             <a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>
               About
             </a>
+            <a href="#skills" onClick={(e) => handleLinkClick(e, '#skills')}>
+              Skills
+            </a>
             <a href="#projects" onClick={(e) => handleLinkClick(e, '#projects')}>
               Work
             </a>
-            <a href="#skills" onClick={(e) => handleLinkClick(e, '#skills')}>
-              Skills
+            <a href="#certificates" onClick={(e) => handleLinkClick(e, '#certificates')}>
+              Certificates
             </a>
             <a href="#journey" onClick={(e) => handleLinkClick(e, '#journey')}>
               Journey
@@ -71,6 +74,18 @@ export default function Footer() {
               >
                 <GithubIcon size={16} />
               </a>
+
+              {siteConfig.telegram && (
+                <a
+                  href={siteConfig.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-btn"
+                  aria-label="Telegram Direct"
+                >
+                  <TelegramIcon size={16} />
+                </a>
+              )}
 
               <a
                 href={siteConfig.linkedin}

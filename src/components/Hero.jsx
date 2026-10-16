@@ -32,10 +32,10 @@ export default function Hero() {
           <span>● UIT Yangon // IT Student</span>
         </div>
         <div className="scatter-badge scatter-badge-2">
-          <span>★ Featured: Crop Doctor AI</span>
+          <span>⚡ Agentic Web Development</span>
         </div>
         <div className="scatter-badge scatter-badge-3">
-          <span>Gemini 2.5 • React 19 • Python</span>
+          <span>Cursor • Gemini • React 19 • Python</span>
         </div>
 
         {/* Identity Label */}
@@ -48,7 +48,7 @@ export default function Hero() {
           <span className="identity-pulsing-dot" />
           <span>{siteConfig.name}</span>
           <span style={{ color: 'var(--border-subtle)' }}>/</span>
-          <span style={{ color: 'var(--accent-1)' }}>AI & Creative Developer</span>
+          <span style={{ color: 'var(--accent-1)' }}>Agentic Web & AI Developer</span>
         </motion.div>
 
         {/* 3D Extruded Master Headline */}
@@ -80,8 +80,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          IT student exploring <strong>AI application development</strong>, <strong>interactive 3D web experiences</strong>,
-          and <strong>full-stack engineering</strong> at the University of Information Technology (UIT), Yangon.
+          IT student at the University of Information Technology (UIT), Yangon, specializing in{' '}
+          <strong>agentic web development</strong>, <strong>practical AI applications</strong>, and{' '}
+          <strong>interactive 3D full-stack experiences</strong>.
         </motion.p>
 
         {/* CTAs */}

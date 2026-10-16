@@ -1,32 +1,38 @@
 export const skillCategories = [
   {
     id: "ai-development",
-    title: "AI & Machine Learning APIs",
-    description: "Integrating vision models, language APIs, and intelligent tool-calling workflows.",
+    title: "Agentic Web Development & AI",
+    description: "Building production websites with autonomous AI coding agents, vision models, and LLM APIs.",
     skills: [
       {
-        name: "Gemini 2.5 Flash",
+        name: "Agentic Web Development",
         status: "Hands-on",
-        experience: "Vision analysis, plant disease diagnosis in Crop Doctor AI",
+        experience: "Building responsive, modern websites rapidly using autonomous AI coding agents",
         icon: "Sparkles",
       },
       {
-        name: "OpenRouter API",
+        name: "AI Coding Agents (Cursor)",
         status: "Hands-on",
-        experience: "Multi-model orchestration, web search tool-calling integration",
+        experience: "Cursor AI Hackathon participant, agentic prompting, test-driven scaffolding",
+        icon: "Terminal",
+      },
+      {
+        name: "Gemini 2.5 Flash Vision",
+        status: "Hands-on",
+        experience: "Vision analysis, plant disease diagnosis in Crop Doctor AI",
         icon: "Cpu",
+      },
+      {
+        name: "OpenRouter & Tool-Calling",
+        status: "Hands-on",
+        experience: "Multi-model orchestration, agricultural web search tool-calling integration",
+        icon: "Code2",
       },
       {
         name: "Prompt Engineering",
         status: "Hands-on",
-        experience: "Structured JSON responses, low-cost recommendations, citations",
+        experience: "Structured system prompts, JSON outputs, low-cost recommendations, citations",
         icon: "Terminal",
-      },
-      {
-        name: "Python AI Scripting",
-        status: "Currently Learning",
-        experience: "Exploring model scripting, data manipulation, and lightweight APIs",
-        icon: "Code2",
       },
     ],
   },

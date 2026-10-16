@@ -55,3 +55,4 @@ export const certificateCategories = [
   "All",
   ...Array.from(new Set(certificates.map((c) => c.category).filter(Boolean))),
 ];
+

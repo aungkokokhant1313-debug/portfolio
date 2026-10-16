@@ -37,3 +37,23 @@ export function LinkedinIcon({ size = 18, color = 'currentColor', ...props }) {
   );
 }
 
+export function TelegramIcon({ size = 18, color = 'currentColor', ...props }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M21.5 2L2 9.5l7 3 2.5 7.5L15 15l4.5 4.5L21.5 2z" />
+      <path d="M9 12.5l6-5" />
+    </svg>
+  );
+}
+
+
