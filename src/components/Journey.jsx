@@ -1,10 +1,27 @@
 import { motion } from 'framer-motion';
-import { School, Terminal, Code, Cpu, Rocket, BookOpen } from 'lucide-react';
+import {
+  GraduationCap,
+  Terminal,
+  Database,
+  Network,
+  Globe,
+  Cpu,
+  Rocket,
+  School,
+} from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import { journeyMilestones } from '../data/journey';
 import '../styles/Journey.css';
 
-const iconList = [School, Terminal, Code, Cpu, Rocket, BookOpen];
+const iconMap = {
+  academic: GraduationCap,
+  programming: Terminal,
+  database: Database,
+  networking: Network,
+  web: Globe,
+  ai: Cpu,
+  practice: Rocket,
+};
 
 export default function Journey() {
   return (
@@ -13,7 +30,7 @@ export default function Journey() {
         <SectionHeading
           index="// 05. DEVELOPMENT TIMELINE"
           title="Development Journey."
-          subtitle="A timeline of academic coursework, practical projects, and continuous technical learning."
+          subtitle="A timeline of university coursework, self-study, practical projects, and continuous technical learning."
         />
 
         <div className="journey-timeline-artistic">
@@ -22,7 +39,7 @@ export default function Journey() {
 
           {journeyMilestones.map((milestone, index) => {
             const isEven = index % 2 === 0;
-            const IconComponent = iconList[index % iconList.length];
+            const IconComponent = iconMap[milestone.icon] || School;
 
             return (
               <motion.div
