@@ -68,12 +68,13 @@ export default function Skills() {
           <div className="skills-typographic-stream" aria-hidden="true">
             <motion.div
               className="stream-track"
-              animate={{ x: [0, -600] }}
-              transition={{ repeat: Infinity, duration: 22, ease: 'linear' }}
+              animate={{ x: [0, -800] }}
+              transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
             >
-              <span>REACT 19</span> • <span>THREE.JS</span> • <span>PYTHON</span> • <span>C++</span> •{' '}
-              <span>MOTION FOR REACT</span> • <span>CSS3 3D TRANSFORMS</span> • <span>GIT & GITHUB</span> •{' '}
-              <span>REACT 19</span> • <span>THREE.JS</span> • <span>PYTHON</span> • <span>C++</span>
+              <span>PYTHON (FINISHED)</span> • <span>MYSQL & MONGODB</span> • <span>REACT (LEARNING)</span> •{' '}
+              <span>JSON</span> • <span>C++</span> • <span>NETWORKING FUNDAMENTALS</span> •{' '}
+              <span>AGENTIC WEB DEV</span> • <span>GEMINI 2.5 FLASH</span> • <span>MOTION FOR REACT</span> •{' '}
+              <span>PYTHON (FINISHED)</span> • <span>MYSQL & MONGODB</span> • <span>REACT (LEARNING)</span>
             </motion.div>
           </div>
 
@@ -98,7 +99,7 @@ export default function Skills() {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.72rem',
                       color: 'var(--accent-1)',
-                      background: 'rgba(192, 132, 252, 0.1)',
+                      background: 'rgba(57, 229, 140, 0.12)',
                       padding: '3px 8px',
                       borderRadius: 'var(--radius-full)',
                       border: '1px solid var(--border-subtle)',

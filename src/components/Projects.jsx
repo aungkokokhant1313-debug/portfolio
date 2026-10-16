@@ -167,15 +167,15 @@ export default function Projects() {
       );
     }
 
-    // Default: Creative Studio / 3D
+    // Default: Illustrated Portfolio / Creative Web
     return (
       <div className="project-preview-studio">
         <Box size={32} color="var(--accent-1)" />
         <div style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 800, color: '#FFFFFF' }}>
-          Creative 3D Portfolio
+          Illustrated Developer Portfolio
         </div>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent-2)' }}>
-          React 19 + Three.js + Framer Motion
+          React 19 + Motion for React + CSS3
         </div>
       </div>
     );
@@ -187,7 +187,7 @@ export default function Projects() {
         <SectionHeading
           index="// 03. SELECTED WORKS"
           title="Things I've Built."
-          subtitle="A showcase of AI applications, systems programming, and interactive 3D web engineering."
+          subtitle="A showcase of AI applications, backend systems, and modern web development."
         />
 
         {/* Category Filter Tabs */}
@@ -221,7 +221,17 @@ export default function Projects() {
               >
                 {/* Visual Preview Stage */}
                 <div className="project-visual-stage">
-                  {renderVisualPreview(project)}
+                  <div className="preview-window-topbar">
+                    <div className="preview-dots">
+                      <span className="dot dot-red" />
+                      <span className="dot dot-yellow" />
+                      <span className="dot dot-green" />
+                    </div>
+                    <span className="preview-url-title">{project.id}.app</span>
+                  </div>
+                  <div className="preview-inner-canvas">
+                    {renderVisualPreview(project)}
+                  </div>
                 </div>
 
                 {/* Card Body */}

@@ -25,7 +25,7 @@
 .certificate-tab-btn:hover {
   border-color: var(--accent-1);
   color: #FFFFFF;
-  background: rgba(192, 132, 252, 0.1);
+  background: rgba(57, 229, 140, 0.12);
 }
 
 .certificate-tab-btn.active {
@@ -75,13 +75,13 @@
 }
 
 .certificate-card.is-featured {
-  border-color: rgba(168, 85, 247, 0.4);
+  border-color: rgba(57, 229, 140, 0.45);
 }
 
 /* Visual Stage / Image Container */
 .certificate-image-stage {
   height: 250px;
-  background: radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.12), rgba(9, 7, 16, 0.95));
+  background: radial-gradient(circle at 50% 50%, rgba(57, 229, 140, 0.12), rgba(11, 15, 13, 0.95));
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);

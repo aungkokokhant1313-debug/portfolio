@@ -26,42 +26,44 @@ body {
   min-height: 100vh;
 }
 
-/* Cosmic Grain Overlay */
-.noise-overlay {
+/* Subtle Background Pattern & Grid */
+.bg-grid-pattern {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.042;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 0;
+  background-image: 
+    radial-gradient(rgba(57, 229, 140, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(57, 229, 140, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 229, 140, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px, 64px 64px, 64px 64px;
+  opacity: 0.75;
 }
 
-/* Ambient Radial Cosmic Backlights */
+/* Ambient Radial Backlights */
 .ambient-glow-top {
   position: fixed;
-  top: 10%;
-  left: 50%;
+  top: 5%;
+  left: 60%;
   transform: translateX(-50%);
-  width: 700px;
+  width: 650px;
   height: 450px;
-  background: radial-gradient(circle, var(--glow-primary) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(57, 229, 140, 0.18) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
-  filter: blur(100px);
-  opacity: 0.55;
+  filter: blur(120px);
 }
 
 .ambient-glow-bottom {
   position: fixed;
   bottom: 10%;
-  right: 15%;
-  width: 500px;
-  height: 350px;
-  background: radial-gradient(circle, var(--glow-secondary) 0%, transparent 70%);
+  left: 15%;
+  width: 550px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
-  filter: blur(120px);
-  opacity: 0.45;
+  filter: blur(130px);
 }
 
 /* Typography Defaults */

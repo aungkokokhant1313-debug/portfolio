@@ -5,73 +5,68 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   /* Layout */
-  --max-width: 1300px;
-  --header-height: 80px;
+  --max-width: 1240px;
+  --header-height: 76px;
 
-  /* Base Backgrounds (Dark Charcoal / Deep Cosmic) */
-  --bg-space: #090710;
-  --bg-charcoal: #0F0B1A;
-  --bg-card: rgba(22, 17, 38, 0.65);
-  --bg-card-hover: rgba(30, 23, 52, 0.85);
-  --bg-glass: rgba(18, 14, 32, 0.75);
-  --border-subtle: rgba(168, 85, 247, 0.18);
-  --border-glow: rgba(168, 85, 247, 0.45);
+  /* Base Backgrounds (Near-Black & Dark Charcoal) */
+  --bg-space: #0B0F0D;
+  --bg-charcoal: #111713;
+  --bg-card: rgba(18, 24, 20, 0.75);
+  --bg-card-hover: rgba(24, 32, 27, 0.92);
+  --bg-glass: rgba(16, 22, 18, 0.82);
+  --border-subtle: rgba(57, 229, 140, 0.16);
+  --border-glow: rgba(57, 229, 140, 0.45);
 
   /* Typography */
   --text-primary: #F8FAFC;
   --text-secondary: #CBD5E1;
-  --text-muted: #64748B;
+  --text-muted: #7E8B83;
 
-  /* Theme Presets (Default: Cyber Violet) */
-  --accent-1: #C084FC; /* Purple */
-  --accent-2: #38BDF8; /* Electric Blue */
-  --accent-3: #F43F5E; /* Magenta */
-  --accent-4: #A3E635; /* Acid Lime */
+  /* Palette: Lime-Green Primary Accents with Purple, Electric Blue & Pink */
+  --accent-1: #39E58C; /* Vibrant Lime Green (Primary) */
+  --accent-lime: #39E58C;
+  --accent-2: #A855F7; /* Purple (Secondary) */
+  --accent-purple: #A855F7;
+  --accent-3: #38BDF8; /* Electric Blue (Secondary) */
+  --accent-blue: #38BDF8;
+  --accent-4: #EC4899; /* Pink / Magenta (Secondary) */
+  --accent-pink: #EC4899;
   --accent-cyan: #22D3EE;
 
-  /* 3D Extrusion Shadows */
-  --shadow-3d-1: #7C3AED;
-  --shadow-3d-2: #6D28D9;
-  --shadow-3d-3: #5B21B6;
-  --shadow-3d-4: #4C1D95;
-
-  /* Glowing and Ambience */
-  --glow-primary: rgba(192, 132, 252, 0.35);
-  --glow-secondary: rgba(56, 189, 248, 0.35);
+  /* Glowing & Ambience */
+  --glow-primary: rgba(57, 229, 140, 0.28);
+  --glow-secondary: rgba(168, 85, 247, 0.28);
+  --glow-blue: rgba(56, 189, 248, 0.25);
+  --glow-pink: rgba(236, 72, 153, 0.25);
 
   --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-full: 9999px;
 
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Theme Variant 2: Electric Azure */
-[data-palette="electric-blue"] {
-  --accent-1: #38BDF8;
-  --accent-2: #06B6D4;
-  --accent-3: #818CF8;
-  --accent-4: #A3E635;
-  --shadow-3d-1: #0284C7;
-  --shadow-3d-2: #0369A1;
-  --shadow-3d-3: #075985;
-  --shadow-3d-4: #0C4A6E;
-  --glow-primary: rgba(56, 189, 248, 0.35);
-  --border-subtle: rgba(56, 189, 248, 0.2);
+/* Theme Variant 2: Cyber Violet */
+[data-palette="cyber-violet"] {
+  --accent-1: #C084FC;
+  --accent-2: #39E58C;
+  --accent-3: #38BDF8;
+  --accent-4: #EC4899;
+  --glow-primary: rgba(192, 132, 252, 0.3);
+  --border-subtle: rgba(192, 132, 252, 0.2);
+  --border-glow: rgba(192, 132, 252, 0.45);
 }
 
-/* Theme Variant 3: Neon Sunset */
-[data-palette="neon-sunset"] {
-  --accent-1: #FB7185;
-  --accent-2: #F43F5E;
-  --accent-3: #F59E0B;
-  --accent-4: #EC4899;
-  --shadow-3d-1: #E11D48;
-  --shadow-3d-2: #BE123C;
-  --shadow-3d-3: #9F1239;
-  --shadow-3d-4: #881337;
-  --glow-primary: rgba(244, 63, 94, 0.35);
-  --border-subtle: rgba(244, 63, 94, 0.2);
+/* Theme Variant 3: Electric Azure */
+[data-palette="electric-blue"] {
+  --accent-1: #38BDF8;
+  --accent-2: #39E58C;
+  --accent-3: #A855F7;
+  --accent-4: #F43F5E;
+  --glow-primary: rgba(56, 189, 248, 0.3);
+  --border-subtle: rgba(56, 189, 248, 0.2);
+  --border-glow: rgba(56, 189, 248, 0.45);
 }
