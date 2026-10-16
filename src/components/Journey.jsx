@@ -11,14 +11,14 @@ export default function Journey() {
     <section id="journey" className="section-wrapper">
       <div className="container">
         <SectionHeading
-          index="// 04. JOURNEY"
-          title="My Journey."
-          subtitle="Key academic checkpoints, self-directed milestones, and my path toward full-stack engineering."
+          index="// 04. MILESTONES"
+          title="Development Journey."
+          subtitle="From computer science foundations at UIT Yangon to creative full-stack development."
         />
 
-        <div className="journey-timeline-wrapper">
-          {/* Timeline background gradient line */}
-          <div className="timeline-vertical-line" />
+        <div className="journey-timeline-artistic">
+          {/* Luminous Timeline Track */}
+          <div className="timeline-glow-line" />
 
           {journeyMilestones.map((milestone, index) => {
             const isEven = index % 2 === 0;
@@ -27,36 +27,36 @@ export default function Journey() {
             return (
               <motion.div
                 key={milestone.id}
-                className={`timeline-item ${isEven ? 'left' : 'right'}`}
+                className={`timeline-art-item ${isEven ? 'left' : 'right'}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: 0.08 * index, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Node point */}
-                <div className="timeline-node">
-                  <div className="timeline-node-inner" />
+                <div className="timeline-art-node">
+                  <div className="timeline-art-node-core" />
                 </div>
 
-                {/* Milestone Content Card */}
-                <div className="glass-panel timeline-content-card">
-                  <div className="timeline-meta-row">
-                    <span className="timeline-period-badge">{milestone.period}</span>
-                    <span className="timeline-highlight-label">
+                {/* Milestone Card */}
+                <div className="timeline-art-card">
+                  <div className="timeline-card-header">
+                    <span className="timeline-period-art">{milestone.period}</span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
                       {milestone.highlight}
                     </span>
                   </div>
 
-                  <h3 className="timeline-milestone-title">{milestone.title}</h3>
+                  <h3 className="timeline-title-art">{milestone.title}</h3>
 
-                  <div className="timeline-institution">
+                  <div className="timeline-inst-art">
                     <IconComponent size={14} />
                     <span>{milestone.institution}</span>
                   </div>
 
-                  <p className="timeline-desc">{milestone.description}</p>
+                  <p className="timeline-desc-art">{milestone.description}</p>
 
-                  <div className="timeline-skill-chips">
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {milestone.skills.map((skill) => (
                       <span key={skill} className="tech-tag" style={{ fontSize: '0.72rem', padding: '2px 8px' }}>
                         {skill}
@@ -72,4 +72,3 @@ export default function Journey() {
     </section>
   );
 }
-

@@ -21,83 +21,85 @@ export default function Footer() {
   };
 
   return (
-    <footer className="site-footer">
-      <div className="container footer-content">
-        <div className="footer-top-row">
-          {/* Brand */}
-          <div className="footer-brand">
-            <div className="footer-logo-badge">
+    <footer className="creative-footer">
+      <div className="container creative-footer-content">
+        <div className="footer-main-row">
+          <div className="footer-signature">
+            <div className="footer-akk-badge">
               <span>AKK</span>
             </div>
-            <div className="footer-brand-text">
-              <span className="footer-brand-name">{siteConfig.name}</span>
-              <span className="footer-tagline">
-                Full-Stack Developer in Progress • UIT Yangon
-              </span>
+            <div>
+              <div className="footer-name-text">{siteConfig.name}</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-1)' }}>
+                Creative Developer • UIT Yangon
+              </div>
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <nav className="footer-nav" aria-label="Footer navigation">
-            {siteConfig.navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="footer-nav-link"
-              >
-                {link.name}
-              </a>
-            ))}
+          <nav className="footer-nav-minimal" aria-label="Footer navigation">
+            <a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>
+              About
+            </a>
+            <a href="#projects" onClick={(e) => handleLinkClick(e, '#projects')}>
+              Work
+            </a>
+            <a href="#skills" onClick={(e) => handleLinkClick(e, '#skills')}>
+              Skills
+            </a>
+            <a href="#journey" onClick={(e) => handleLinkClick(e, '#journey')}>
+              Journey
+            </a>
+            <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
+              Contact
+            </a>
           </nav>
         </div>
 
-        <div className="footer-bottom-row">
-          <div className="footer-copyright">
-            © {currentYear} {siteConfig.name}. All rights reserved.
+        <div className="footer-sub-row">
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+            © {currentYear} {siteConfig.name}. Breathing art into code.
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            {/* Social Links */}
-            <div className="footer-social-links">
+            <div className="footer-sub-row-socials">
               <a
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-social-icon"
-                aria-label="GitHub profile"
+                className="footer-social-btn"
+                aria-label="GitHub Profile"
               >
-                <GithubIcon size={17} />
+                <GithubIcon size={16} />
               </a>
 
               <a
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-social-icon"
-                aria-label="LinkedIn profile"
+                className="footer-social-btn"
+                aria-label="LinkedIn Profile"
               >
-                <LinkedinIcon size={17} />
+                <LinkedinIcon size={16} />
               </a>
 
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="footer-social-icon"
-                aria-label="Send email"
+                className="footer-social-btn"
+                aria-label="Send direct email"
               >
-                <Mail size={17} />
+                <Mail size={16} />
               </a>
             </div>
 
-            {/* Back to Top */}
             <button
               type="button"
               onClick={scrollToTop}
-              className="back-to-top-btn"
-              aria-label="Scroll back to top of the page"
+              className="btn-card-studio"
+              style={{ fontSize: '0.75rem', padding: '6px 12px' }}
+              aria-label="Scroll back to top"
             >
               <span>TOP</span>
-              <ArrowUp size={14} />
+              <ArrowUp size={13} />
             </button>
           </div>
         </div>

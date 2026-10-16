@@ -1,5 +1,6 @@
-import { useTheme } from './hooks/useTheme';
+import { useState, useEffect } from 'react';
 import { useActiveSection } from './hooks/useActiveSection';
+import ThreeCanvas from './components/ThreeCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,7 +11,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
-  const { theme, toggleTheme } = useTheme();
+  const [palette, setPalette] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('akk_studio_palette') || 'cyber-violet';
+    }
+    return 'cyber-violet';
+  });
+
   const activeSection = useActiveSection([
     'hero',
     'about',
@@ -20,20 +27,31 @@ export default function App() {
     'contact',
   ]);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-palette', palette);
+    localStorage.setItem('akk_studio_palette', palette);
+  }, [palette]);
+
   return (
-    <div className="portfolio-app-root">
-      {/* Background Subtle Tech Grid & Ambient Glow */}
-      <div className="bg-grid-pattern" aria-hidden="true" />
-      <div className="ambient-glow" aria-hidden="true" />
+    <div className="portfolio-studio-root">
+      {/* Interactive 3D Canvas Background */}
+      <ThreeCanvas palette={palette} />
+
+      {/* Cosmic Noise Grain Overlay */}
+      <div className="noise-overlay" aria-hidden="true" />
+
+      {/* Ambient Color Lighting */}
+      <div className="ambient-glow-top" aria-hidden="true" />
+      <div className="ambient-glow-bottom" aria-hidden="true" />
 
       {/* Navigation */}
       <Navbar
         activeSection={activeSection}
-        theme={theme}
-        toggleTheme={toggleTheme}
+        currentPalette={palette}
+        onSelectPalette={setPalette}
       />
 
-      {/* Main Content Sections */}
+      {/* Creative Main Sections */}
       <main id="main-content">
         <Hero />
         <About />
@@ -43,7 +61,7 @@ export default function App() {
         <Contact />
       </main>
 
-      {/* Footer */}
+      {/* Minimalist Studio Footer */}
       <Footer />
     </div>
   );

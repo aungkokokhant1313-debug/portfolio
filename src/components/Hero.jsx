@@ -1,239 +1,142 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, FolderCode, Mail, Download, Sparkles, Terminal as TerminalIcon } from 'lucide-react';
+import { ArrowDown, FolderCode, Mail, Download } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import '../styles/Hero.css';
 
 export default function Hero() {
-  const [activeTab, setActiveTab] = useState('profile');
-  const [typedTitle, setTypedTitle] = useState('');
-  const fullTitle = siteConfig.tagline; // "Full-Stack Developer in Progress."
+  const headlineRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 12, y: -6 });
 
-  // Subtle typing effect for the subtitle
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index <= fullTitle.length) {
-        setTypedTitle(fullTitle.slice(0, index));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 45);
+  const handleMouseMove = (e) => {
+    if (!headlineRef.current) return;
+    const rect = headlineRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
 
-    return () => clearInterval(interval);
-  }, [fullTitle]);
+    const rotX = -(y / (rect.height / 2)) * 14;
+    const rotY = (x / (rect.width / 2)) * 14;
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
+    setTilt({ x: Math.max(-18, Math.min(18, rotX + 8)), y: Math.max(-18, Math.min(18, rotY - 4)) });
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 22 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-    },
+  const handleMouseLeave = () => {
+    setTilt({ x: 12, y: -6 });
   };
 
   return (
-    <section id="hero" className="hero-section">
-      <div className="container">
-        {/* Floating Decorative Elements */}
-        <div
-          className="floating-decoration-badge floating-elem-1"
-          style={{ top: '14%', right: '8%', display: 'none' }}
+    <section id="hero" className="creative-hero">
+      <div className="hero-inner-composition">
+        {/* Floating Ambient Badges */}
+        <div className="scatter-badge scatter-badge-1">
+          <span>● UIT Yangon // Student</span>
+        </div>
+        <div className="scatter-badge scatter-badge-2">
+          <span>3D & Creative Development</span>
+        </div>
+        <div className="scatter-badge scatter-badge-3">
+          <span>Python + C++ + React</span>
+        </div>
+
+        {/* Identity Label */}
+        <motion.div
+          className="hero-identity-tag"
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <span>&lt;FullStack /&gt;</span>
-        </div>
-        <div
-          className="floating-decoration-badge floating-elem-2"
-          style={{ bottom: '22%', left: '3%' }}
+          <span className="identity-pulsing-dot" />
+          <span>{siteConfig.name}</span>
+          <span style={{ color: 'var(--border-subtle)' }}>/</span>
+          <span style={{ color: 'var(--accent-1)' }}>Creative Coding Studio</span>
+        </motion.div>
+
+        {/* 3D Extruded Master Headline */}
+        <motion.div
+          ref={headlineRef}
+          className="hero-3d-headline-box"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span>git: branch: main*</span>
-        </div>
-
-        <div className="hero-grid">
-          {/* Left Column: Heading & CTAs */}
-          <motion.div
-            className="hero-content"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+          <h1
+            className="hero-3d-title extruded"
+            style={{
+              transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+            }}
           >
-            {/* Availability Pill */}
-            <motion.div variants={itemVariants} className="hero-badge-wrapper">
-              <div className="hero-status-pill">
-                <span className="status-pulse-dot" />
-                <span>{siteConfig.statusLabel}</span>
-              </div>
-            </motion.div>
+            breathing art
+            <br />
+            into code
+          </h1>
+        </motion.div>
 
-            {/* Main Heading */}
-            <motion.h1 variants={itemVariants} className="hero-title">
-              Hi, I'm{' '}
-              <span className="hero-name-highlight">
-                {siteConfig.name}.
-              </span>
-            </motion.h1>
+        {/* Smaller Creative Intro */}
+        <motion.p
+          className="hero-subtitle-creative"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          IT student exploring <strong>creative development</strong>, <strong>interactive 3D web experiences</strong>,
+          and <strong>full-stack technologies</strong> at the University of Information Technology (UIT), Yangon.
+        </motion.p>
 
-            {/* Professional Title with Typing Effect */}
-            <motion.div variants={itemVariants} className="hero-role-title">
-              <Sparkles size={20} color="var(--color-accent-primary)" />
-              <span>{typedTitle}</span>
-              <span className="typing-cursor" />
-            </motion.div>
+        {/* CTAs */}
+        <motion.div
+          className="hero-actions-creative"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <a href="#projects" className="btn-creative-primary">
+            <FolderCode size={18} />
+            <span>Explore Works</span>
+          </a>
 
-            {/* Description */}
-            <motion.p variants={itemVariants} className="hero-description">
-              {siteConfig.heroDescription}
-            </motion.p>
+          <a href="#contact" className="btn-creative-secondary">
+            <Mail size={18} />
+            <span>Let's Create</span>
+          </a>
 
-            {/* CTAs */}
-            <motion.div variants={itemVariants} className="hero-cta-group">
-              <a href="#projects" className="btn-primary">
-                <FolderCode size={18} />
-                <span>Explore My Projects</span>
-              </a>
-
-              <a href="#contact" className="btn-secondary">
-                <Mail size={18} />
-                <span>Contact Me</span>
-              </a>
-
-              <a
-                href={siteConfig.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-                download="Aung_Ko_Ko_Khant_Resume.pdf"
-              >
-                <Download size={18} />
-                <span>Download Resume</span>
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column: Interactive Code Terminal Panel */}
-          <motion.div
-            className="hero-terminal-wrapper"
-            initial={{ opacity: 0, scale: 0.94, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          <a
+            href={siteConfig.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-creative-secondary"
+            download="Aung_Ko_Ko_Khant_Resume.pdf"
           >
-            <div className="terminal-window">
-              {/* Terminal Title Bar */}
-              <div className="terminal-header">
-                <div className="terminal-controls">
-                  <span className="terminal-dot close" />
-                  <span className="terminal-dot minimize" />
-                  <span className="terminal-dot maximize" />
-                </div>
-
-                <div className="terminal-title-bar">
-                  <TerminalIcon size={14} />
-                  <span>akk-dev-terminal</span>
-                </div>
-
-                <div className="terminal-tabs">
-                  <button
-                    type="button"
-                    className={`terminal-tab-btn ${activeTab === 'profile' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('profile')}
-                  >
-                    profile.json
-                  </button>
-                  <button
-                    type="button"
-                    className={`terminal-tab-btn ${activeTab === 'env' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('env')}
-                  >
-                    status.sh
-                  </button>
-                </div>
-              </div>
-
-              {/* Terminal Code Body */}
-              <div className="terminal-body">
-                {activeTab === 'profile' ? (
-                  <pre>
-                    <code>
-                      <span className="code-comment">// Developer Specification & Profile</span>
-                      <br />
-                      <span className="code-const">const</span>{' '}
-                      <span className="code-var">developer</span> = &#123;
-                      <br />
-                      {'  '}<span className="code-prop">name:</span> <span className="code-string">"{siteConfig.name}"</span>,
-                      <br />
-                      {'  '}<span className="code-prop">education:</span> <span className="code-string">"UIT Yangon"</span>,
-                      <br />
-                      {'  '}<span className="code-prop">role:</span> <span className="code-string">"Aspiring Full-Stack Developer"</span>,
-                      <br />
-                      {'  '}<span className="code-prop">coreLanguages:</span> [<span className="code-string">"C++"</span>, <span className="code-string">"JavaScript"</span>],
-                      <br />
-                      {'  '}<span className="code-prop">frontendStack:</span> [<span className="code-string">"React"</span>, <span className="code-string">"HTML5"</span>, <span className="code-string">"CSS3"</span>],
-                      <br />
-                      {'  '}<span className="code-prop">currentlyLearning:</span> [<span className="code-string">"Python"</span>, <span className="code-string">"Flask Basics"</span>],
-                      <br />
-                      {'  '}<span className="code-prop">openForInternships:</span> <span className="code-boolean">true</span>,
-                      <br />
-                      {'  '}<span className="code-prop">location:</span> <span className="code-string">"Yangon, Myanmar"</span>
-                      <br />
-                      &#125;;
-                      <br />
-                      <br />
-                      <span className="code-keyword">export</span>{' '}
-                      <span className="code-keyword">default</span> developer;
-                      <span className="terminal-cursor" />
-                    </code>
-                  </pre>
-                ) : (
-                  <pre>
-                    <code>
-                      <span className="code-comment"># Initializing runtime environment...</span>
-                      <br />
-                      <span className="code-var">$</span> ./check_availability.sh
-                      <br />
-                      <span className="code-string">[✓] UIT Yangon Academic Status: ACTIVE</span>
-                      <br />
-                      <span className="code-string">[✓] Development Stack: REACT + JAVASCRIPT + C++</span>
-                      <br />
-                      <span className="code-string">[✓] Currently Learning: PYTHON + FLASK</span>
-                      <br />
-                      <span className="code-string">[✓] Target Role: FULL-STACK INTERNSHIP</span>
-                      <br />
-                      <span className="code-string">[✓] Ready to collaborate on real-world code</span>
-                      <br />
-                      <span className="code-var">$</span> echo "Let's connect and build."
-                      <br />
-                      <span className="code-prop">&gt; Let's connect and build.</span>
-                      <span className="terminal-cursor" />
-                    </code>
-                  </pre>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Down Indicator */}
-        <a href="#about" className="hero-scroll-indicator" aria-label="Scroll to About section">
-          <div className="scroll-mouse">
-            <div className="scroll-wheel" />
-          </div>
-          <span>SCROLL</span>
-          <ArrowDown size={14} />
-        </a>
+            <Download size={18} />
+            <span>Resume</span>
+          </a>
+        </motion.div>
       </div>
+
+      {/* Floating Scroll Indicator */}
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8 }}
+        style={{
+          position: 'absolute',
+          bottom: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '6px',
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.7rem',
+          letterSpacing: '0.08em',
+          textDecoration: 'none',
+        }}
+      >
+        <span>SCROLL DOWN</span>
+        <ArrowDown size={14} color="var(--accent-1)" />
+      </motion.a>
     </section>
   );
 }
-

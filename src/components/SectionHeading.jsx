@@ -26,8 +26,8 @@ export default function SectionHeading({
           transition={{ duration: 0.4 }}
           style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.85rem',
-            color: 'var(--color-accent-primary)',
+            fontSize: '0.8rem',
+            color: 'var(--accent-1)',
             letterSpacing: '0.08em',
             marginBottom: '8px',
             display: 'inline-flex',
@@ -36,7 +36,7 @@ export default function SectionHeading({
           }}
         >
           <span>{index}</span>
-          <span style={{ width: '20px', height: '1px', background: 'var(--color-accent-primary)', opacity: 0.5 }}></span>
+          <span style={{ width: '24px', height: '1px', background: 'var(--accent-1)', opacity: 0.6 }}></span>
         </motion.div>
       )}
 
@@ -46,10 +46,12 @@ export default function SectionHeading({
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
         style={{
-          fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
+          fontWeight: 800,
           letterSpacing: '-0.03em',
           marginBottom: subtitle ? '12px' : '0',
-          color: 'var(--color-text-primary)',
+          color: '#FFFFFF',
         }}
       >
         {title}
@@ -62,9 +64,10 @@ export default function SectionHeading({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{
-            fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)',
-            color: 'var(--color-text-secondary)',
-            lineHeight: 1.6,
+            fontFamily: 'var(--font-sans)',
+            fontSize: 'clamp(1rem, 1.8vw, 1.18rem)',
+            color: 'var(--text-secondary)',
+            lineHeight: 1.65,
           }}
         >
           {subtitle}

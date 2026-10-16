@@ -28,7 +28,6 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState(null); // 'draft_ready', 'service_success', 'service_error'
   const [copied, setCopied] = useState(false);
 
-  // Validation logic
   const validateForm = () => {
     const newErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,10 +55,15 @@ export default function Contact() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear field error on change
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
+  };
+
+  const getMailtoUrl = () => {
+    const subjectLine = formData.subject.trim() || `Creative Inquiry from ${formData.name}`;
+    const bodyContent = `Hello Aung Ko Ko Khant,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n`;
+    return `mailto:${siteConfig.email}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyContent)}`;
   };
 
   const handleSubmit = async (e) => {
@@ -98,7 +102,7 @@ export default function Contact() {
           setSubmitStatus('service_error');
         }
       } catch {
-        // If backend is unreachable or CORS blocked, gracefully fall back to mailto
+        // Fallback to mailto
         setSubmitStatus('draft_ready');
         window.open(getMailtoUrl(), '_self');
       } finally {
@@ -115,14 +119,8 @@ export default function Contact() {
     }, 300);
   };
 
-  const getMailtoUrl = () => {
-    const subjectLine = formData.subject.trim() || `Portfolio Inquiry from ${formData.name}`;
-    const bodyContent = `Hello Aung Ko Ko Khant,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n`;
-    return `mailto:${siteConfig.email}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyContent)}`;
-  };
-
   const handleCopyMessage = () => {
-    const textToCopy = `From: ${formData.name} (${formData.email})\nSubject: ${formData.subject || 'Inquiry'}\n\n${formData.message}`;
+    const textToCopy = `From: ${formData.name} (${formData.email})\nSubject: ${formData.subject || 'Creative Inquiry'}\n\n${formData.message}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -132,219 +130,238 @@ export default function Contact() {
     <section id="contact" className="section-wrapper">
       <div className="container">
         <SectionHeading
-          index="// 05. CONTACT"
-          title="Let's Work Together."
-          subtitle="Have a project idea, internship opportunity, or just want to connect? I'd love to hear from you."
+          index="// 05. GET IN TOUCH"
+          title="Contact Studio."
+          subtitle="Open for internships, creative development collaborations, and software engineering opportunities."
         />
 
-        <div className="contact-grid">
-          {/* Column 1: Contact Information */}
+        <div className="creative-contact-grid">
+          {/* Left Column: Creative Statement & Direct Channels */}
           <motion.div
-            className="contact-info-col"
-            initial={{ opacity: 0, x: -24 }}
+            className="creative-contact-info"
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="glass-panel contact-card-box">
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
-                Get in Touch
-              </h3>
+            <h3 className="contact-studio-statement">
+              Let's create something <span>interesting</span> together.
+            </h3>
 
-              <p className="contact-intro-p">
-                I am actively seeking <strong>internship opportunities</strong> and software projects
-                to contribute my development skills and learn from experienced teams. Feel free to reach out
-                directly through any of the channels below.
-              </p>
+            <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>
+              Whether you have an internship opening, a project idea, or simply want to chat about creative code
+              and full-stack development, my inbox is always open.
+            </p>
 
-              <div className="contact-channels-list">
-                {/* Email */}
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="contact-channel-item"
-                  aria-label="Send direct email to Aung Ko Ko Khant"
-                >
-                  <div className="contact-channel-icon">
-                    <Mail size={18} />
-                  </div>
-                  <div>
-                    <div className="channel-label">Email Address</div>
-                    <div className="channel-value">{siteConfig.email}</div>
-                  </div>
-                </a>
-
-                {/* GitHub */}
-                <a
-                  href={siteConfig.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-channel-item"
-                  aria-label="Aung Ko Ko Khant GitHub Profile"
-                >
-                  <div className="contact-channel-icon">
-                    <GithubIcon size={18} />
-                  </div>
-                  <div>
-                    <div className="channel-label">GitHub</div>
-                    <div className="channel-value">github.com/aungkokokhant</div>
-                  </div>
-                </a>
-
-                {/* LinkedIn */}
-                <a
-                  href={siteConfig.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-channel-item"
-                  aria-label="Aung Ko Ko Khant LinkedIn Profile"
-                >
-                  <div className="contact-channel-icon">
-                    <LinkedinIcon size={18} />
-                  </div>
-                  <div>
-                    <div className="channel-label">LinkedIn</div>
-                    <div className="channel-value">linkedin.com/in/aungkokokhant</div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="contact-availability-note">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-accent-primary)', fontWeight: 600, marginBottom: '4px' }}>
-                  <Clock size={15} />
-                  <span>Response Time</span>
+            <div className="contact-channels-art">
+              {/* Email */}
+              <a href={`mailto:${siteConfig.email}`} className="art-channel-item" aria-label="Email Aung Ko Ko Khant">
+                <div className="art-channel-icon-box">
+                  <Mail size={18} />
                 </div>
-                <span>I usually reply within 24 to 48 hours for academic or professional inquiries.</span>
-              </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-1)', textTransform: 'uppercase' }}>
+                    Direct Email
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>{siteConfig.email}</div>
+                </div>
+              </a>
+
+              {/* GitHub */}
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="art-channel-item"
+                aria-label="GitHub Profile"
+              >
+                <div className="art-channel-icon-box">
+                  <GithubIcon size={18} />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-2)', textTransform: 'uppercase' }}>
+                    Code Repositories
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>github.com/aungkokokhant</div>
+                </div>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="art-channel-item"
+                aria-label="LinkedIn Profile"
+              >
+                <div className="art-channel-icon-box">
+                  <LinkedinIcon size={18} />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-3)', textTransform: 'uppercase' }}>
+                    Professional Network
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.98rem' }}>linkedin.com/in/aungkokokhant</div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              style={{
+                padding: '14px 18px',
+                borderRadius: 'var(--radius-md)',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid var(--border-subtle)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontSize: '0.82rem',
+                color: 'var(--text-secondary)',
+              }}
+            >
+              <Clock size={16} color="var(--accent-1)" />
+              <span>Response time: Typically within 24 to 48 hours for academic or professional inquiries.</span>
             </div>
           </motion.div>
 
-          {/* Column 2: Contact Form */}
+          {/* Right Column: Interactive Form */}
           <motion.div
-            className="glass-panel contact-form-box"
-            initial={{ opacity: 0, x: 24 }}
+            className="creative-form-card"
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.6 }}
           >
-            <form className="contact-form" onSubmit={handleSubmit} noValidate>
-              {/* Name */}
-              <div className="form-group">
-                <label htmlFor="contact-name" className="form-label">
-                  <span>Your Name *</span>
+            <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <div>
+                <label
+                  htmlFor="creative-name"
+                  style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, marginBottom: '6px', color: '#FFFFFF' }}
+                >
+                  Your Name *
                 </label>
                 <input
-                  id="contact-name"
+                  id="creative-name"
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="e.g. Alex Morgan"
-                  className={`form-input ${errors.name ? 'has-error' : ''}`}
-                  aria-invalid={!!errors.name}
-                  aria-describedby={errors.name ? 'name-error' : undefined}
+                  placeholder="e.g. Maya Lin"
+                  className="creative-form-input"
                   required
                 />
                 {errors.name && (
-                  <span id="name-error" className="form-error-msg">
-                    <AlertCircle size={13} />
+                  <span style={{ fontSize: '0.76rem', color: 'var(--accent-3)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <AlertCircle size={12} />
                     {errors.name}
                   </span>
                 )}
               </div>
 
-              {/* Email */}
-              <div className="form-group">
-                <label htmlFor="contact-email" className="form-label">
-                  <span>Your Email *</span>
+              <div>
+                <label
+                  htmlFor="creative-email"
+                  style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, marginBottom: '6px', color: '#FFFFFF' }}
+                >
+                  Your Email *
                 </label>
                 <input
-                  id="contact-email"
+                  id="creative-email"
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="name@example.com"
-                  className={`form-input ${errors.email ? 'has-error' : ''}`}
-                  aria-invalid={!!errors.email}
-                  aria-describedby={errors.email ? 'email-error' : undefined}
+                  placeholder="name@organization.com"
+                  className="creative-form-input"
                   required
                 />
                 {errors.email && (
-                  <span id="email-error" className="form-error-msg">
-                    <AlertCircle size={13} />
+                  <span style={{ fontSize: '0.76rem', color: 'var(--accent-3)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <AlertCircle size={12} />
                     {errors.email}
                   </span>
                 )}
               </div>
 
-              {/* Subject (Optional) */}
-              <div className="form-group">
-                <label htmlFor="contact-subject" className="form-label">
-                  <span>Subject (Optional)</span>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)' }}>Optional</span>
+              <div>
+                <label
+                  htmlFor="creative-subject"
+                  style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, marginBottom: '6px', color: '#FFFFFF' }}
+                >
+                  Subject (Optional)
                 </label>
                 <input
-                  id="contact-subject"
+                  id="creative-subject"
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="Internship opportunity / Project collaboration"
-                  className="form-input"
+                  placeholder="Internship opportunity / Creative collaboration"
+                  className="creative-form-input"
                 />
               </div>
 
-              {/* Message */}
-              <div className="form-group">
-                <label htmlFor="contact-message" className="form-label">
-                  <span>Your Message *</span>
+              <div>
+                <label
+                  htmlFor="creative-message"
+                  style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, marginBottom: '6px', color: '#FFFFFF' }}
+                >
+                  Message *
                 </label>
                 <textarea
-                  id="contact-message"
+                  id="creative-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your team, project idea, or internship opening..."
-                  className={`form-textarea ${errors.message ? 'has-error' : ''}`}
-                  aria-invalid={!!errors.message}
-                  aria-describedby={errors.message ? 'message-error' : undefined}
+                  placeholder="Tell me about your team, ideas, or opportunity..."
+                  className="creative-form-textarea"
                   rows={4}
                   required
                 />
                 {errors.message && (
-                  <span id="message-error" className="form-error-msg">
-                    <AlertCircle size={13} />
+                  <span style={{ fontSize: '0.76rem', color: 'var(--accent-3)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <AlertCircle size={12} />
                     {errors.message}
                   </span>
                 )}
               </div>
 
-              {/* Submission Status Banners */}
+              {/* Submission State Banners */}
               {submitStatus === 'draft_ready' && (
-                <div className="form-status-banner info">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-accent-primary)', fontWeight: 600 }}>
+                <div
+                  style={{
+                    padding: '16px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'rgba(192, 132, 252, 0.12)',
+                    border: '1px solid var(--border-glow)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-1)', fontWeight: 700 }}>
                     <CheckCircle2 size={18} />
                     <span>Message Draft Prepared!</span>
                   </div>
-                  <p style={{ margin: 0, fontSize: '0.86rem' }}>
-                    Click below to open your email client with your message filled in, or copy it to your clipboard.
+                  <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                    Your email client should open automatically. You can also click below to open it directly or copy the formatted text.
                   </p>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '6px' }}>
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <a
                       href={getMailtoUrl()}
-                      className="btn-primary"
-                      style={{ fontSize: '0.85rem', padding: '8px 16px' }}
+                      className="btn-card-studio primary"
+                      style={{ fontSize: '0.82rem', padding: '6px 14px' }}
                     >
-                      <ExternalLink size={15} />
-                      <span>Open in Mail Client</span>
+                      <ExternalLink size={13} />
+                      <span>Open in Mail</span>
                     </a>
                     <button
                       type="button"
                       onClick={handleCopyMessage}
-                      className="btn-secondary"
-                      style={{ fontSize: '0.85rem', padding: '8px 16px' }}
+                      className="btn-card-studio"
+                      style={{ fontSize: '0.82rem', padding: '6px 14px' }}
                     >
-                      <Copy size={15} />
+                      <Copy size={13} />
                       <span>{copied ? 'Copied to Clipboard!' : 'Copy Text'}</span>
                     </button>
                   </div>
@@ -352,42 +369,52 @@ export default function Contact() {
               )}
 
               {submitStatus === 'service_success' && (
-                <div className="form-status-banner success">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}>
-                    <CheckCircle2 size={18} />
-                    <span>Message Delivered Successfully!</span>
-                  </div>
-                  <p style={{ margin: 0, fontSize: '0.86rem' }}>
-                    Thank you for reaching out. I have received your message and will get back to you shortly.
-                  </p>
+                <div
+                  style={{
+                    padding: '16px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'rgba(163, 230, 53, 0.15)',
+                    border: '1px solid var(--accent-4)',
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                  }}
+                >
+                  <CheckCircle2 size={20} color="var(--accent-4)" />
+                  <span style={{ fontSize: '0.88rem', fontWeight: 600 }}>
+                    Thank you! Your message has been safely received by the studio API.
+                  </span>
                 </div>
               )}
 
               {submitStatus === 'service_error' && (
-                <div className="form-status-banner error">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}>
-                    <AlertCircle size={18} />
-                    <span>Unable to send via form service.</span>
-                  </div>
-                  <p style={{ margin: 0, fontSize: '0.86rem' }}>
-                    Please reach out directly via{' '}
-                    <a href={`mailto:${siteConfig.email}`} style={{ textDecoration: 'underline' }}>
-                      {siteConfig.email}
-                    </a>
-                    .
-                  </p>
+                <div
+                  style={{
+                    padding: '16px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'rgba(244, 63, 94, 0.15)',
+                    border: '1px solid var(--accent-3)',
+                    color: '#FFFFFF',
+                    fontSize: '0.86rem',
+                  }}
+                >
+                  Unable to reach backend service. Please email directly at{' '}
+                  <a href={`mailto:${siteConfig.email}`} style={{ textDecoration: 'underline', color: 'var(--accent-1)' }}>
+                    {siteConfig.email}
+                  </a>
+                  .
                 </div>
               )}
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="submit-btn"
+                className="btn-send-creative"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 size={18} className="floating-elem-1" />
+                    <Loader2 size={18} className="spin-slow" />
                     <span>Processing...</span>
                   </>
                 ) : (
@@ -398,8 +425,8 @@ export default function Contact() {
                 )}
               </button>
 
-              <div className="form-footer-note">
-                <span>Frontend-ready with instant mailto draft option. Supports Flask backend via <code>VITE_API_BASE_URL</code>.</span>
+              <div style={{ textAlign: 'center', fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                <span>Functional with direct email client draft or Flask backend via <code>VITE_API_BASE_URL</code>.</span>
               </div>
             </form>
           </motion.div>

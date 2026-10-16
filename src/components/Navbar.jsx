@@ -1,46 +1,33 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import PaletteSwitcher from './PaletteSwitcher';
 import { siteConfig } from '../data/siteConfig';
-import ThemeToggle from './ThemeToggle';
 import '../styles/Navbar.css';
 
-export default function Navbar({ activeSection, theme, toggleTheme }) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const navItems = [
+  { name: 'About', href: '#about', id: 'about' },
+  { name: 'Work', href: '#projects', id: 'projects' },
+  { name: 'Skills', href: '#skills', id: 'skills' },
+  { name: 'Journey', href: '#journey', id: 'journey' },
+  { name: 'Contact', href: '#contact', id: 'contact' },
+];
+
+export default function Navbar({ activeSection, currentPalette, onSelectPalette }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 900) {
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Prevent scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }, [mobileMenuOpen]);
-
   const handleLinkClick = (e, href) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
+    setMobileOpen(false);
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -48,139 +35,118 @@ export default function Navbar({ activeSection, theme, toggleTheme }) {
   };
 
   return (
-    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container navbar-container">
-        {/* Monogram Logo */}
+    <header className={`studio-nav ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container-minimal">
+        {/* Top-Left: Minimalist AKK Logo */}
         <a
           href="#hero"
-          className="navbar-logo"
+          className="studio-logo"
           onClick={(e) => handleLinkClick(e, '#hero')}
-          aria-label="Aung Ko Ko Khant Portfolio Home"
+          aria-label="Aung Ko Ko Khant Creative Developer Portfolio"
         >
-          <div className="logo-badge">
+          <div className="studio-logo-mark">
             <span>AKK</span>
           </div>
-          <div className="logo-text">
-            <span className="logo-name">{siteConfig.name}</span>
-            <span className="logo-subtitle">UIT // FULL-STACK</span>
+          <div className="studio-logo-text">
+            <span className="studio-name">{siteConfig.name}</span>
+            <span className="studio-sub">CREATIVE DEVELOPER // UIT</span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="nav-links-desktop" aria-label="Main Navigation">
-          {siteConfig.navLinks.map((link) => {
-            const sectionId = link.href.replace('#', '');
-            const isActive = activeSection === sectionId;
+        {/* Top-Right: Color Theme Controls + Minimalist Links */}
+        <div className="nav-right-group">
+          <PaletteSwitcher
+            currentPalette={currentPalette}
+            onSelectPalette={onSelectPalette}
+          />
 
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className={`nav-item ${isActive ? 'active' : ''}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {link.name}
-                {isActive && (
-                  <motion.div
-                    className="active-indicator"
-                    layoutId="activeNavIndicator"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            );
-          })}
-        </nav>
-
-        {/* Right Actions: Theme Toggle & Resume */}
-        <div className="navbar-actions">
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+          <nav className="nav-links-minimal" aria-label="Main Navigation">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleLinkClick(e, item.href)}
+                  className={`nav-link-item ${isActive ? 'active' : ''}`}
+                >
+                  <span>{item.name}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="navUnderline"
+                      className="nav-link-line"
+                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
+          </nav>
 
           <a
             href={siteConfig.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="nav-resume-btn"
+            className="nav-cv-btn"
             download="Aung_Ko_Ko_Khant_Resume.pdf"
           >
-            <span>Resume</span>
-            <ArrowUpRight size={15} />
+            <span>CV</span>
+            <ArrowUpRight size={13} />
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button
             type="button"
-            className="mobile-menu-btn"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            aria-expanded={mobileMenuOpen}
-            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            className="mobile-nav-toggle"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Full-Screen Mobile Overlay Menu */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            <motion.div
-              className="mobile-nav-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <motion.div
-              className="mobile-nav-drawer"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0 12px 8px', color: 'var(--color-accent-primary)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
-                <Terminal size={14} />
-                <span>NAVIGATION CONSOLE</span>
-              </div>
-
-              {siteConfig.navLinks.map((link) => {
-                const sectionId = link.href.replace('#', '');
-                const isActive = activeSection === sectionId;
-
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`mobile-nav-link ${isActive ? 'active' : ''}`}
-                  >
-                    <span>{link.name}</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
-                      0{siteConfig.navLinks.indexOf(link) + 1}
-                    </span>
-                  </a>
-                );
-              })}
-
-              <div style={{ paddingTop: '12px', borderTop: '1px solid var(--color-border)', display: 'flex', gap: '10px' }}>
+        {mobileOpen && (
+          <motion.div
+            className="mobile-overlay-menu"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.25 }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {navItems.map((item, idx) => (
                 <a
-                  href={siteConfig.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{ width: '100%', fontSize: '0.9rem', padding: '10px 16px' }}
-                  download="Aung_Ko_Ko_Khant_Resume.pdf"
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleLinkClick(e, item.href)}
+                  className={`mobile-link-large ${activeSection === item.id ? 'active' : ''}`}
                 >
-                  <span>Download Resume (PDF)</span>
-                  <ArrowUpRight size={16} />
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: 'var(--accent-1)', marginRight: '16px' }}>
+                    0{idx + 1}.
+                  </span>
+                  {item.name}
                 </a>
-              </div>
-            </motion.div>
-          </>
+              ))}
+            </div>
+
+            <div style={{ marginTop: '20px', display: 'flex', gap: '14px', alignItems: 'center' }}>
+              <a
+                href={siteConfig.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                download="Aung_Ko_Ko_Khant_Resume.pdf"
+              >
+                <span>Download CV (PDF)</span>
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
 }
-

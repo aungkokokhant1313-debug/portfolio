@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Terminal, Sparkles, Eye, Shirt, Globe } from 'lucide-react';
+import { ExternalLink, Terminal, Sparkles, Eye, Shirt, Box } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import SectionHeading from './SectionHeading';
 import ProjectModal from './ProjectModal';
@@ -19,7 +19,7 @@ export default function Projects() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 28 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -32,7 +32,7 @@ export default function Projects() {
       return (
         <img
           src={project.image}
-          alt={`${project.title} screenshot preview`}
+          alt={`${project.title} preview`}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       );
@@ -40,20 +40,23 @@ export default function Projects() {
 
     if (project.previewType === 'terminal') {
       return (
-        <div className="css-preview-terminal">
-          <div className="css-terminal-cmd">
-            <Terminal size={14} />
-            <span>{project.terminalPreview?.command || './app'}</span>
+        <div className="project-preview-console">
+          <div className="console-top-bar">
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Terminal size={13} />
+              <span>{project.terminalPreview?.command || './app'}</span>
+            </span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--accent-4)' }}>[C++ OK]</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {project.terminalPreview?.output?.slice(1, 5).map((line, idx) => (
-              <div key={idx} className="css-terminal-stat">
-                <span>{line}</span>
+              <div key={idx} style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
+                {line}
               </div>
             ))}
           </div>
-          <div style={{ color: 'var(--color-accent-primary)', fontSize: '0.68rem' }}>
-            ● Process finished with exit code 0
+          <div style={{ color: 'var(--accent-1)', fontSize: '0.65rem', paddingTop: '4px', borderTop: '1px dashed rgba(255,255,255,0.1)' }}>
+            ● Process terminated with status code 0
           </div>
         </div>
       );
@@ -61,29 +64,29 @@ export default function Projects() {
 
     if (project.previewType === 'app-card') {
       return (
-        <div className="css-preview-app">
-          <div className="css-app-filter-bar">
-            <span className="css-filter-pill">#Minimalist</span>
-            <span className="css-filter-pill">#Autumn26</span>
-            <span className="css-filter-pill">#Casual</span>
+        <div className="project-preview-lookbook">
+          <div className="lookbook-chips">
+            <span className="lookbook-chip">#AvantGarde</span>
+            <span className="lookbook-chip">#Monochrome</span>
+            <span className="lookbook-chip">#ReactUI</span>
           </div>
-          <div className="css-app-mock-cards">
-            <div className="css-mock-outfit-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--color-accent-primary)', fontSize: '0.75rem' }}>
+          <div className="lookbook-cards-row">
+            <div className="lookbook-card-item">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: 'var(--accent-3)', fontSize: '0.74rem' }}>
                 <Shirt size={13} />
-                <span>Outfit Ensemble A</span>
+                <span>Ensemble Alpha</span>
               </div>
-              <div style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)' }}>
-                Monochrome Minimal
+              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>
+                Minimalist Tailored
               </div>
             </div>
-            <div className="css-mock-outfit-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--color-accent-secondary)', fontSize: '0.75rem' }}>
+            <div className="lookbook-card-item">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: 'var(--accent-1)', fontSize: '0.74rem' }}>
                 <Sparkles size={13} />
-                <span>Outfit Ensemble B</span>
+                <span>Ensemble Beta</span>
               </div>
-              <div style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)' }}>
-                Smart Tech-Casual
+              <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>
+                Cyber-Streetwear
               </div>
             </div>
           </div>
@@ -91,15 +94,15 @@ export default function Projects() {
       );
     }
 
-    // Default: Code showcase / Portfolio
+    // Default: Creative Studio / 3D
     return (
-      <div className="css-preview-portfolio">
-        <Globe size={28} color="var(--color-accent-primary)" />
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text-primary)' }}>
-          Aung Ko Ko Khant Portfolio
+      <div className="project-preview-studio">
+        <Box size={32} color="var(--accent-1)" />
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 800, color: '#FFFFFF' }}>
+          Creative 3D Portfolio
         </div>
-        <div style={{ fontSize: '0.72rem', color: 'var(--color-accent-primary)' }}>
-          React + Vite + Framer Motion
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent-2)' }}>
+          React 19 + Three.js + Framer Motion
         </div>
       </div>
     );
@@ -109,13 +112,13 @@ export default function Projects() {
     <section id="projects" className="section-wrapper">
       <div className="container">
         <SectionHeading
-          index="// 03. PROJECTS"
+          index="// 03. SELECTED WORKS"
           title="Things I've Built."
-          subtitle="A selection of my academic foundations, web software experiments, and personal applications."
+          subtitle="A showcase of systems engineering, interactive web applications, and creative coding experiments."
         />
 
         <motion.div
-          className="projects-grid"
+          className="creative-projects-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -124,27 +127,27 @@ export default function Projects() {
           {projects.map((project) => (
             <motion.article
               key={project.id}
-              className="glass-panel project-card"
+              className="creative-project-card"
               variants={cardVariants}
             >
-              {/* Visual Preview */}
-              <div className="project-preview-box">
+              {/* Visual Preview Stage */}
+              <div className="project-visual-stage">
                 {renderVisualPreview(project)}
               </div>
 
               {/* Card Body */}
-              <div className="project-card-body">
-                <div className="project-meta-row">
-                  <span className="project-category-tag">{project.category}</span>
-                  <span className="project-status-badge">{project.status}</span>
+              <div className="creative-project-body">
+                <div className="project-meta-pill-row">
+                  <span className="project-tag-accent">{project.category}</span>
+                  <span className="project-status-pill">{project.status}</span>
                 </div>
 
-                <h3 className="project-title">{project.title}</h3>
+                <h3 className="project-heading-title">{project.title}</h3>
 
-                <p className="project-summary">{project.summary}</p>
+                <p className="project-brief-summary">{project.summary}</p>
 
-                {/* Tech Badges */}
-                <div className="project-tech-list">
+                {/* Tech Tags */}
+                <div className="project-tags-cloud">
                   {project.technologies.slice(0, 4).map((tech) => (
                     <span key={tech} className="tech-tag">
                       {tech}
@@ -155,15 +158,15 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* Actions */}
-                <div className="project-actions-row">
+                {/* Action Bar */}
+                <div className="creative-action-bar">
                   <button
                     type="button"
-                    className="btn-card-action"
+                    className="btn-card-studio"
                     onClick={() => setSelectedProject(project)}
                   >
-                    <Eye size={15} />
-                    <span>View Details</span>
+                    <Eye size={14} />
+                    <span>Details</span>
                   </button>
 
                   {project.repoUrl && (
@@ -171,10 +174,10 @@ export default function Projects() {
                       href={project.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-card-action"
-                      aria-label={`View ${project.title} source code`}
+                      className="btn-card-studio"
+                      aria-label={`View ${project.title} source code on GitHub`}
                     >
-                      <GithubIcon size={15} />
+                      <GithubIcon size={14} />
                       <span>Code</span>
                     </a>
                   )}
@@ -184,11 +187,11 @@ export default function Projects() {
                       href={project.demoUrl}
                       target={project.demoUrl.startsWith('#') ? '_self' : '_blank'}
                       rel="noopener noreferrer"
-                      className="btn-card-action btn-card-primary"
-                      aria-label={`View ${project.title} live demo`}
+                      className="btn-card-studio primary"
+                      aria-label={`View ${project.title} live preview`}
                     >
-                      <ExternalLink size={15} />
-                      <span>Demo</span>
+                      <ExternalLink size={14} />
+                      <span>Live</span>
                     </a>
                   )}
                 </div>
@@ -197,7 +200,7 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* Project Inspection Modal */}
+        {/* Modal Inspection */}
         <ProjectModal
           project={selectedProject}
           isOpen={!!selectedProject}

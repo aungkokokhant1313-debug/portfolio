@@ -4,16 +4,13 @@ import {
   Palette,
   Code2,
   Atom,
-  Server,
-  Cpu,
   Terminal,
   Braces,
   Database,
   FileJson,
   GitBranch,
   Laptop,
-  CheckCircle2,
-  Sparkles,
+  Box,
 } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import SectionHeading from './SectionHeading';
@@ -25,8 +22,6 @@ const iconMap = {
   Palette,
   Code2,
   Atom,
-  Server,
-  Cpu,
   Terminal,
   Braces,
   Database,
@@ -34,6 +29,7 @@ const iconMap = {
   GitBranch,
   Github: GithubIcon,
   Laptop,
+  Box,
 };
 
 export default function Skills() {
@@ -41,9 +37,7 @@ export default function Skills() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-      },
+      transition: { staggerChildren: 0.12 },
     },
   };
 
@@ -60,86 +54,77 @@ export default function Skills() {
     <section id="skills" className="section-wrapper">
       <div className="container">
         <SectionHeading
-          index="// 02. SKILLS"
-          title="My Tech Stack."
-          subtitle="Technologies and developer tools I utilize in coursework, personal projects, and continuous learning."
+          index="// 02. TECHNICAL PALETTE"
+          title="Skills & Technologies."
+          subtitle="An interactive typographic spectrum of tools I utilize across creative development and systems coursework."
         />
 
-        <motion.div
-          className="skills-categories-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-        >
-          {skillCategories.map((category) => (
+        <div className="skills-creative-composition">
+          {/* Animated Typographic Stream */}
+          <div className="skills-typographic-stream" aria-hidden="true">
             <motion.div
-              key={category.id}
-              className="glass-panel skills-category-card"
-              variants={cardVariants}
+              className="stream-track"
+              animate={{ x: [0, -600] }}
+              transition={{ repeat: Infinity, duration: 22, ease: 'linear' }}
             >
-              <div className="category-header">
-                <h3 className="category-title">{category.title}</h3>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.72rem',
-                    color: 'var(--color-accent-primary)',
-                    background: 'var(--color-bg-badge)',
-                    padding: '3px 8px',
-                    borderRadius: 'var(--radius-sm)',
-                    border: '1px solid var(--color-border-subtle)',
-                  }}
-                >
-                  {category.skills.length} TECHNOLOGIES
-                </span>
-              </div>
+              <span>REACT 19</span> • <span>THREE.JS</span> • <span>PYTHON</span> • <span>C++</span> •{' '}
+              <span>MOTION FOR REACT</span> • <span>CSS3 3D TRANSFORMS</span> • <span>GIT & GITHUB</span> •{' '}
+              <span>REACT 19</span> • <span>THREE.JS</span> • <span>PYTHON</span> • <span>C++</span>
+            </motion.div>
+          </div>
 
-              <p className="category-desc">{category.description}</p>
+          {/* Categorized Clusters */}
+          <motion.div
+            className="skills-cluster-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+          >
+            {skillCategories.map((category) => (
+              <motion.div
+                key={category.id}
+                className="skills-cluster-card"
+                variants={cardVariants}
+              >
+                <div className="cluster-title-row">
+                  <h3 className="cluster-name">{category.title}</h3>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.72rem',
+                      color: 'var(--accent-1)',
+                      background: 'rgba(192, 132, 252, 0.1)',
+                      padding: '3px 8px',
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid var(--border-subtle)',
+                    }}
+                  >
+                    {category.skills.length} TOOLS
+                  </span>
+                </div>
 
-              <div className="skills-items-grid">
-                {category.skills.map((skill) => {
-                  const IconComponent = iconMap[skill.icon] || Code2;
-                  const isLearning = skill.status === 'Currently Learning';
+                <p className="cluster-sub">{category.description}</p>
 
-                  return (
-                    <div key={skill.name} className="skill-pill">
-                      <div className="skill-pill-top">
-                        <div className="skill-pill-name">
-                          <IconComponent size={16} color="var(--color-accent-primary)" />
-                          <span>{skill.name}</span>
-                        </div>
-                        <span
-                          className={`status-badge ${isLearning ? 'learning' : 'handson'}`}
-                        >
+                <div className="cluster-badges-wrap">
+                  {category.skills.map((skill) => {
+                    const IconComponent = iconMap[skill.icon] || Code2;
+                    const isLearning = skill.status === 'Currently Learning';
+
+                    return (
+                      <div key={skill.name} className="creative-skill-pill">
+                        <IconComponent size={15} color={isLearning ? 'var(--accent-2)' : 'var(--accent-1)'} />
+                        <span>{skill.name}</span>
+                        <span className={`skill-status-tag ${isLearning ? 'learning' : 'hands-on'}`}>
                           {isLearning ? 'Learning' : 'Hands-on'}
                         </span>
                       </div>
-                      <p className="skill-pill-desc">{skill.experience}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Legend */}
-        <div className="skills-legend">
-          <div className="legend-item">
-            <CheckCircle2 size={15} color="var(--color-accent-primary)" />
-            <span>
-              <strong style={{ color: 'var(--color-text-primary)' }}>Hands-on:</strong> Applied in
-              projects & coursework
-            </span>
-          </div>
-          <div className="legend-item">
-            <Sparkles size={15} color="var(--color-accent-secondary)" />
-            <span>
-              <strong style={{ color: 'var(--color-text-primary)' }}>Learning:</strong> Active study
-              & backend progression
-            </span>
-          </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,89 +1,77 @@
 :root {
   /* Fonts */
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   /* Layout */
-  --max-width: 1200px;
-  --header-height: 72px;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --max-width: 1300px;
+  --header-height: 80px;
+
+  /* Base Backgrounds (Dark Charcoal / Deep Cosmic) */
+  --bg-space: #090710;
+  --bg-charcoal: #0F0B1A;
+  --bg-card: rgba(22, 17, 38, 0.65);
+  --bg-card-hover: rgba(30, 23, 52, 0.85);
+  --bg-glass: rgba(18, 14, 32, 0.75);
+  --border-subtle: rgba(168, 85, 247, 0.18);
+  --border-glow: rgba(168, 85, 247, 0.45);
+
+  /* Typography */
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #64748B;
+
+  /* Theme Presets (Default: Cyber Violet) */
+  --accent-1: #C084FC; /* Purple */
+  --accent-2: #38BDF8; /* Electric Blue */
+  --accent-3: #F43F5E; /* Magenta */
+  --accent-4: #A3E635; /* Acid Lime */
+  --accent-cyan: #22D3EE;
+
+  /* 3D Extrusion Shadows */
+  --shadow-3d-1: #7C3AED;
+  --shadow-3d-2: #6D28D9;
+  --shadow-3d-3: #5B21B6;
+  --shadow-3d-4: #4C1D95;
+
+  /* Glowing and Ambience */
+  --glow-primary: rgba(192, 132, 252, 0.35);
+  --glow-secondary: rgba(56, 189, 248, 0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 
-  /* Transitions */
-  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Dark Theme (Default) */
-:root,
-:root[data-theme="dark"] {
-  --color-bg-primary: #0B0F0D;
-  --color-bg-secondary: #111713;
-  --color-bg-card: rgba(17, 23, 19, 0.78);
-  --color-bg-card-hover: rgba(22, 31, 25, 0.9);
-  --color-bg-terminal: #070B09;
-  --color-bg-badge: rgba(57, 229, 140, 0.08);
-
-  --color-accent-primary: #39E58C;
-  --color-accent-secondary: #8AF5B5;
-  --color-accent-glow: rgba(57, 229, 140, 0.16);
-  --color-accent-glow-strong: rgba(57, 229, 140, 0.28);
-  --color-accent-muted: rgba(57, 229, 140, 0.2);
-
-  --color-text-primary: #F5F7F5;
-  --color-text-secondary: #A0AAA3;
-  --color-text-muted: #647369;
-
-  --color-border: #1E2A22;
-  --color-border-subtle: rgba(57, 229, 140, 0.1);
-  --color-border-hover: rgba(57, 229, 140, 0.35);
-
-  --color-input-bg: rgba(14, 20, 16, 0.7);
-  --color-input-border: #233228;
-  --color-input-focus: #39E58C;
-
-  --color-nav-bg: rgba(11, 15, 13, 0.85);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 28px rgba(57, 229, 140, 0.12);
-  --grid-line-color: rgba(57, 229, 140, 0.04);
+/* Theme Variant 2: Electric Azure */
+[data-palette="electric-blue"] {
+  --accent-1: #38BDF8;
+  --accent-2: #06B6D4;
+  --accent-3: #818CF8;
+  --accent-4: #A3E635;
+  --shadow-3d-1: #0284C7;
+  --shadow-3d-2: #0369A1;
+  --shadow-3d-3: #075985;
+  --shadow-3d-4: #0C4A6E;
+  --glow-primary: rgba(56, 189, 248, 0.35);
+  --border-subtle: rgba(56, 189, 248, 0.2);
 }
 
-/* Light Theme */
-:root[data-theme="light"] {
-  --color-bg-primary: #F5F8F6;
-  --color-bg-secondary: #EAF0EC;
-  --color-bg-card: #FFFFFF;
-  --color-bg-card-hover: #F8FAF8;
-  --color-bg-terminal: #16201A;
-  --color-bg-badge: rgba(14, 159, 86, 0.1);
-
-  --color-accent-primary: #0E9F56;
-  --color-accent-secondary: #1EBE6E;
-  --color-accent-glow: rgba(14, 159, 86, 0.12);
-  --color-accent-glow-strong: rgba(14, 159, 86, 0.22);
-  --color-accent-muted: rgba(14, 159, 86, 0.18);
-
-  --color-text-primary: #101813;
-  --color-text-secondary: #48564D;
-  --color-text-muted: #728277;
-
-  --color-border: #D4E0D7;
-  --color-border-subtle: rgba(14, 159, 86, 0.12);
-  --color-border-hover: rgba(14, 159, 86, 0.45);
-
-  --color-input-bg: #FFFFFF;
-  --color-input-border: #CFDDD3;
-  --color-input-focus: #0E9F56;
-
-  --color-nav-bg: rgba(245, 248, 246, 0.88);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.07);
-  --shadow-glow: 0 0 25px rgba(14, 159, 86, 0.08);
-  --grid-line-color: rgba(14, 159, 86, 0.04);
+/* Theme Variant 3: Neon Sunset */
+[data-palette="neon-sunset"] {
+  --accent-1: #FB7185;
+  --accent-2: #F43F5E;
+  --accent-3: #F59E0B;
+  --accent-4: #EC4899;
+  --shadow-3d-1: #E11D48;
+  --shadow-3d-2: #BE123C;
+  --shadow-3d-3: #9F1239;
+  --shadow-3d-4: #881337;
+  --glow-primary: rgba(244, 63, 94, 0.35);
+  --border-subtle: rgba(244, 63, 94, 0.2);
 }
-

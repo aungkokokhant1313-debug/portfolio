@@ -1,16 +1,9 @@
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-@keyframes pulseGlow {
+@keyframes float3D {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(57, 229, 140, 0.4);
-    opacity: 1;
+    transform: translateY(0px) rotateX(12deg) rotateY(-8deg) rotateZ(-1deg);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(57, 229, 140, 0);
-    opacity: 0.85;
+    transform: translateY(-16px) rotateX(15deg) rotateY(-5deg) rotateZ(1deg);
   }
 }
 
@@ -19,70 +12,74 @@
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px) rotate(1.5deg);
+    transform: translateY(-12px) rotate(2deg);
   }
 }
 
-@keyframes floatSlow {
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlowSoft {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
+    transform: scale(1);
   }
   50% {
-    transform: translateY(-12px) rotate(-2deg);
+    opacity: 0.7;
+    transform: scale(1.08);
   }
 }
 
-@keyframes gridPan {
+@keyframes shimmerWave {
   0% {
-    background-position: 0 0;
+    background-position: -200% 0;
   }
   100% {
-    background-position: 48px 48px;
+    background-position: 200% 0;
   }
 }
 
-.terminal-cursor {
+/* 3D Tilted Text Classes */
+.text-3d-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: lowercase;
+  letter-spacing: -0.04em;
+  transform: perspective(1000px) rotateX(14deg) rotateY(-6deg) rotateZ(-1.5deg);
+  transform-style: preserve-3d;
   display: inline-block;
-  width: 8px;
-  height: 18px;
-  background-color: var(--color-accent-primary);
-  margin-left: 4px;
-  vertical-align: middle;
-  animation: cursorBlink 1s infinite;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-1) 35%, var(--accent-2) 70%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+  text-shadow: none;
 }
 
-.status-pulse-dot {
+.text-3d-extruded {
   position: relative;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-accent-primary);
-  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
 }
 
-.status-pulse-dot::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background-color: var(--color-accent-primary);
-  opacity: 0.7;
-  animation: pulseGlow 2s infinite ease-in-out;
+/* Cosmic Grain Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.floating-elem-1 {
-  animation: floatGentle 6s ease-in-out infinite;
-}
-
-.floating-elem-2 {
-  animation: floatSlow 8s ease-in-out infinite 1s;
-}
-
-.floating-elem-3 {
-  animation: floatGentle 7s ease-in-out infinite 2s;
-}
-
-/* Reduced motion preference */
+/* Reduced Motion Preference */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -93,4 +90,3 @@
     scroll-behavior: auto !important;
   }
 }
-

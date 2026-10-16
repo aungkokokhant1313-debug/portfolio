@@ -62,11 +62,11 @@ export default function ProjectModal({ project, isOpen, onClose }) {
             <div className="project-modal-content">
               {/* Description */}
               <div>
-                <h4 style={{ fontSize: '0.9rem', color: 'var(--color-text-primary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Info size={16} color="var(--color-accent-primary)" />
+                <h4 style={{ fontSize: '0.9rem', color: '#FFFFFF', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Info size={16} color="var(--accent-1)" />
                   <span>Overview & Architecture</span>
                 </h4>
-                <p style={{ fontSize: '0.92rem', color: 'var(--color-text-secondary)', lineHeight: 1.7 }}>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
                   {project.description}
                 </p>
               </div>
@@ -74,14 +74,14 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               {/* Key Features */}
               {project.features && project.features.length > 0 && (
                 <div>
-                  <h4 style={{ fontSize: '0.9rem', color: 'var(--color-text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <Layers size={16} color="var(--color-accent-primary)" />
+                  <h4 style={{ fontSize: '0.9rem', color: '#FFFFFF', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Layers size={16} color="var(--accent-1)" />
                     <span>Key Highlights</span>
                   </h4>
                   <ul className="modal-feature-list">
                     {project.features.map((feature, idx) => (
                       <li key={idx} className="modal-feature-item">
-                        <Check size={16} color="var(--color-accent-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                        <Check size={16} color="var(--accent-1)" style={{ flexShrink: 0, marginTop: '2px' }} />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -91,8 +91,8 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
               {/* Technologies */}
               <div>
-                <h4 style={{ fontSize: '0.9rem', color: 'var(--color-text-primary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Terminal size={16} color="var(--color-accent-primary)" />
+                <h4 style={{ fontSize: '0.9rem', color: '#FFFFFF', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Terminal size={16} color="var(--accent-1)" />
                   <span>Technologies & Stack</span>
                 </h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
